@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,8 +26,10 @@ SECRET_KEY = 'django-insecure-+vudp1$5unrs6b@+!=wkq5fdkuid-x-1+-7%@)l$t7hlkse$5k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost'
+]
 
 # Application definition
 
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'main'
 ]
 
@@ -76,8 +80,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('POSTGRES_DB', 'the_curator_db'),
+        'USER': os.getenv('POSTGRES_USER', 'the_curator_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'local_development_password_only'),
+        'HOST': os.getenv('POSTGRES_HOSTNAME', 'localhost'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432')
     }
 }
 
