@@ -41,12 +41,15 @@ class Place(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     # "Premature optimization is the root of all evil."
+
     # Address can be improved if needed:
     # https://pypi.org/project/django-address/
     # https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
 
-    # Opening times can be improved if needed
+    # Opening times can be improved if needed:
     # https://stackoverflow.com/questions/28450106/business-opening-hours-in-django
+
+    # key_info and speciality use yet to be fully defined
 
 
 class PlaceImage(models.Model):
