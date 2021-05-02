@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   postgres:
-    container_name: the-curator.postgres
+    container_name: curator.postgres
     image: postgres
     restart: always
     environment:
@@ -16,7 +16,7 @@ services:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
 
   server:
-    container_name: the-curator.server
+    container_name: curator.server
     restart: always
     build: ./server
     ports:
