@@ -1,4 +1,4 @@
-.PHONY: install start
+.PHONY: install start database dotenv psqlshell
 
 install:
 	@-${MAKE} dotenv
@@ -9,11 +9,11 @@ start:
 
 
 database:
-	@docker exec -it services.api python manage.py migrate
-	@#docker exec -it services.api python manage.py loaddata main/migrations/seed/initial_data.json
+	@docker exec -it the-curator.server python manage.py migrate
+	@#docker exec -it the-curator.server python manage.py loaddata main/migrations/seed/initial_data.json
 	@echo
 	@echo 'Create super user:'
-	@docker exec -it services.api python manage.py createsuperuser
+	@docker exec -it the-curator.server python manage.py createsuperuser
 
 
 dotenv:
@@ -24,3 +24,7 @@ dotenv:
 			 POSTGRES_PORT=5432" \
     | tr -d "[:blank:]" \
     > .env
+
+
+psqlshell:
+	@docker exec -it the-curator.postgres psql the_curator_db the_curator_user
