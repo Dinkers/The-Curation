@@ -1,0 +1,19 @@
+/* 
+
+  .isOverride creates another CSS Modules class to increase the CSS specificity.
+  We need to do this so we can override Bulma's Modal styles which are loaded 
+  after the Modal's custom styles, and are therefore cancelled out.
+
+  For all styles that your want to override from Bulma (or any CSS) use the.override
+  class and import it in the component along with the original className to increase
+  the specificity and actually render your styles.
+
+ */
+
+.modalBackground.isOverride {
+  background-color: white; 
+}
+
+.modalClose.isOverride {
+  background-color: grey;
+}

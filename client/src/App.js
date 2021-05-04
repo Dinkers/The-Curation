@@ -15,10 +15,6 @@ const initialState = {
 function App() {
   const [currentScreen, setCurrentScreen] = useState(initialState.screen);
 
-  useEffect(() => {
-    console.log('Hello from app!');
-  });
-
   const renderScreen = (screen) => {
     if (screen === screens.home) {
       return <Home />;

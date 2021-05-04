@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { setSelectedCity } from '../screens/home/homeSlice';
 import Card from '../components/Card';
+import Modal from '../components/Modal';
 
 const initialState = {
   isSelecting: false
@@ -19,32 +20,40 @@ function CitySelect () {
     setIsSelecting(false);
   }
 
-  const cityChoices = cities.map((city, index) => (
-      <p 
-        onClick={() => handleCitySelection(index)}
-        key={`${city.name}-${index}`}
-      >
-        { city.name }
-      </p>
+  const cityChoiceModalContent = cities.map((city, index) => (
+    <>
+      <div className="block">
+        <Card
+          cardType="image"
+          imageRatio="is-2by1"
+          image={ city.imageURL }
+          imageAlt={ city.imageAlt }
+          clickHandler={ () => handleCitySelection(index) }
+          title={ city.name }
+        />
+      </div>
+    </>
     )
   );
 
-  if (isSelecting) {
-    return (
-      <div>
-        { cityChoices }
-      </div>
-    )
-  } else {
-    return (
+  return (
+    <>
       <Card
         cardType="image"
-        image={selectedCity.imageURL}
-        imageAlt={selectedCity.imageAlt}
-        clickHandler={() => setIsSelecting(true)}
+        imageRatio="is-16by9"
+        image={ selectedCity.imageURL }
+        imageAlt={ selectedCity.imageAlt} 
+        clickHandler={ () => setIsSelecting(true) }
+        title={ selectedCity.name }
       />
-    );
-  }
+
+      <Modal 
+        isActive={ isSelecting }
+        content={ cityChoiceModalContent }
+        closeHandler={ () => setIsSelecting(false) }
+      />
+    </>
+  );
 }
 
 export default CitySelect;

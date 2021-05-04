@@ -1,5 +1,3 @@
-import { useSelector, useDispatch } from 'react-redux';
-
 import CitySelect from '../../components/CitySelect';
 
 function Home () {
@@ -7,12 +5,12 @@ function Home () {
     <>
       <section className="section">
         <div className="container">
-          <h3 className="title is-3">Find places in</h3>
-          <CitySelect />
-        </div>
-      
-        <div className="container">
-          <h3 className="title is-3">Filters</h3>
+          <div className="block">
+            <h3 className="title is-4">Find places in</h3>
+            <CitySelect />
+          </div>
+
+          <h3 className="title is-4">Filters</h3>
         </div>
       </section>
     </>

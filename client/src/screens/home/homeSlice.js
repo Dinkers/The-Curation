@@ -10,7 +10,13 @@ const citiesStub = [
     name: 'San Francisco',
     imageURL: 'https://images.unsplash.com/photo-1521747116042-5a810fda9664',
     imageAlt: 'Golden Gate Bridge'
+  },
+  {
+    name: 'New York City',
+    imageURL: 'https://images.unsplash.com/photo-1522083165195-3424ed129620',
+    imageAlt: 'Brooklyn Bridge with NYC skyline in the background'
   }
+  
 ]; // This will be replaced with a response from the API
 
 export const homeSlice = createSlice({

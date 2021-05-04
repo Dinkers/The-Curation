@@ -3,32 +3,38 @@ export const cardTypes = {
 };
 
 function Card (props) {
+  let cardContent;
 
-  const generateImageCard = (image, imageAlt, clickHandler) => (
-    <div className="card-image" onClick={() => clickHandler()}>
-      <figure className="image is-16by9">
-        <img src={image} alt={imageAlt} />
-      </figure>
-    </div>
+  const generateImageCard = () => (
+    <>
+      <div className="card-image">
+        <figure className={`image ${ props.imageRatio }`}>
+          <img src={ props.image } alt={ props.imageAlt } />
+        </figure>
+        <div className="card-content is-overlay is-flex is-align-items-flex-end">
+          <span className="tag is-large is-white">{ props.title }</span>
+        </div>
+      </div>
+    </>
   );
 
   switch (props.cardType) {
     case cardTypes.image:
-      const imageCard = generateImageCard(props.image, props.imageAlt, props.clickHandler);
-
-      return (
-        <div>
-          <div className="card">
-            { imageCard }
-          </div>
-        </div>
-      );
+      cardContent = generateImageCard();
+      break;
 
     default:
-      return (
-        <p>Please specify a type</p>
-      );
+      cardContent = ( <p>Please specify a type</p>) ;
+      break;
   }
+
+  return (
+    <>
+      <div className="card" onClick={ () => props.clickHandler() }>
+        { cardContent }
+      </div>
+    </>
+  );
 };
 
 export default Card;
