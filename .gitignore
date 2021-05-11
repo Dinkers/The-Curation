@@ -1,5 +1,6 @@
 .DS_Store
 .idea/
+.vscode
 f/server
 venv/
 __pycache__/
