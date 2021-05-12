@@ -24,3 +24,36 @@ class PlaceSerializer(serializers.ModelSerializer):
             'copy',
             'city'
         ]
+
+
+class PlaceImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PlaceImage
+        fields = [
+            'id',
+            'uri',
+            'place'
+        ]
+
+
+class SubmissionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Submission
+        fields = [
+            'id',
+            'submitter_name',
+            'place_website',
+            'reason_for_submission'
+        ]
+
+
+class CitySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = City
+        fields = [
+            'id',
+            'name'
+        ]
