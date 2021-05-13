@@ -2,10 +2,10 @@
 
 install:
 	@-${MAKE} dotenv
-	@docker-compose up --remove-orphans
+	@docker compose up --remove-orphans
 
 start:
-	@docker-compose up
+	@docker compose up
 
 
 database:

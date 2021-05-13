@@ -26,17 +26,6 @@ class PlaceSerializer(serializers.ModelSerializer):
         ]
 
 
-class PlaceImageSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = PlaceImage
-        fields = [
-            'id',
-            'uri',
-            'place'
-        ]
-
-
 class SubmissionSerializer(serializers.ModelSerializer):
 
     class Meta:
