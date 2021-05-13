@@ -3,7 +3,7 @@ from rest_framework import permissions
 from rest_framework import viewsets
 
 from main.models import City, Place, Submission
-from main.serializers import PlaceSerializer, SubmissionSerializer, CitySerializer
+from main.serializers import PlaceSerializer, SubmissionSerializer, CitySerializer, UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -22,12 +22,12 @@ class PlaceViewSet(viewsets.ModelViewSet):
 
 
 class SubmissionViewSet(viewsets.ModelViewSet):
-    queryset = Submission.objects.all().order_by('-created_at')
+    queryset = Submission.objects.all().order_by('-date_submitted')
     serializer_class = SubmissionSerializer
     # permission_classes = [permissions.IsAuthenticated]
 
 
 class CityViewSet(viewsets.ModelViewSet):
-    queryset = City.objects.all().order_by('-created_at')
+    queryset = City.objects.all().order_by('-name')
     serializer_class = CitySerializer
     # permission_classes = [permissions.IsAuthenticated]

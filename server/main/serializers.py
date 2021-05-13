@@ -7,6 +7,19 @@ from django.utils import timezone
 from main.models import City, Place, PlaceImage, Submission
 
 
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'url',
+            'username',
+            'email',
+            'groups'
+        ]
+
+
 class PlaceSerializer(serializers.ModelSerializer):
 
     class Meta:
