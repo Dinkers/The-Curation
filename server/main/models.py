@@ -12,11 +12,14 @@ class City(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return f'<City: {self.name}>'
+
 
 class PlaceType(models.TextChoices):
-    RESTAURANT = 'restaurant'
-    CAFE = 'cafe'
-    BAR = 'bar'
+    RESTAURANT = 'Restaurant'
+    CAFE = 'Cafe'
+    BAR = 'Bar'
 
 
 class Place(models.Model):
@@ -28,12 +31,12 @@ class Place(models.Model):
     name = models.CharField(max_length=150)
     website = models.CharField(max_length=200)
     place_type = models.CharField(max_length=10, choices=PlaceType.choices, default=PlaceType.RESTAURANT)
-    address = models.TextField()
-    opening_times = models.TextField()
-    contact_info = models.TextField()
-    key_info = models.TextField()
-    speciality = models.TextField()
-    copy = models.TextField()
+    address = models.TextField(blank=True)
+    opening_times = models.TextField(blank=True)
+    contact_info = models.TextField(blank=True)
+    key_info = models.TextField(blank=True)
+    speciality = models.TextField(blank=True)
+    copy = models.TextField(blank=True)
 
     city = models.ForeignKey(City, on_delete=models.CASCADE)
 
@@ -51,6 +54,9 @@ class Place(models.Model):
 
     # key_info and speciality use yet to be fully defined
 
+    def __str__(self):
+        return f'<Place: {self.name} (Type: {self.place_type})>'
+
 
 class PlaceImage(models.Model):
 
@@ -58,9 +64,12 @@ class PlaceImage(models.Model):
         db_table = 'server_place_images'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    uri = models.CharField(max_length=200)
+    uri = models.ImageField(upload_to='uploads/')
 
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'<Place Image: {self.uri} (Place: {self.place.name})>'
 
 
 class Submission(models.Model):
@@ -75,6 +84,8 @@ class Submission(models.Model):
 
     date_submitted = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'<Submission: {self.uri}>'
 
 # class Guestbook(models.model):
 #
