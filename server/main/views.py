@@ -19,6 +19,7 @@ class PlaceViewSet(viewsets.ModelViewSet):
     queryset = Place.objects.all().order_by('-created_at')
     serializer_class = PlaceSerializer
     # permission_classes = [permissions.IsAuthenticated]
+    filterset_fields = ('city', )
 
 
 class SubmissionViewSet(viewsets.ModelViewSet):
