@@ -66,7 +66,7 @@ class PlaceImage(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     uri = models.ImageField(upload_to='uploads/')
 
-    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'<Place Image: {self.uri} (Place: {self.place.name})>'

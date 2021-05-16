@@ -22,6 +22,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class PlaceSerializer(serializers.ModelSerializer):
 
+    place_images = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
     class Meta:
         model = Place
         fields = [
@@ -35,7 +37,8 @@ class PlaceSerializer(serializers.ModelSerializer):
             'key_info',
             'speciality',
             'copy',
-            'city'
+            'city',
+            'place_images'
         ]
 
 
