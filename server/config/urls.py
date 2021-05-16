@@ -25,6 +25,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'places', views.PlaceViewSet)
 router.register(r'submissions', views.SubmissionViewSet)
 router.register(r'cities', views.CityViewSet)
+router.register(r'place-images', views.PlaceImageViewSet)
 
 
 urlpatterns = [

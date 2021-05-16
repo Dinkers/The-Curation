@@ -62,3 +62,14 @@ class CitySerializer(serializers.ModelSerializer):
             'id',
             'name'
         ]
+
+
+class PlaceImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PlaceImage
+        fields = [
+            'id',
+            'uri',
+            'place'
+        ]

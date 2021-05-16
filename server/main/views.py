@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from rest_framework import permissions
 from rest_framework import viewsets
 
-from main.models import City, Place, Submission
-from main.serializers import PlaceSerializer, SubmissionSerializer, CitySerializer, UserSerializer
+from main.models import City, Place, Submission, PlaceImage
+from main.serializers import PlaceSerializer, SubmissionSerializer, CitySerializer, UserSerializer, PlaceImageSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -31,4 +31,10 @@ class SubmissionViewSet(viewsets.ModelViewSet):
 class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all().order_by('-name')
     serializer_class = CitySerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+
+class PlaceImageViewSet(viewsets.ModelViewSet):
+    queryset = PlaceImage.objects.all().order_by('-place')
+    serializer_class = PlaceImageSerializer
     # permission_classes = [permissions.IsAuthenticated]
