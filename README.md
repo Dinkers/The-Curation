@@ -4,6 +4,8 @@ Web application to help distinguished users find good food.
 
 ## Design and Specification
 
+![initial design]()![figma_01](/Users/kayra/Documents/Dinkers/the-curation/docs/figma_01.png)
+
 #### Pages
 
 * Home screen
@@ -13,11 +15,12 @@ Web application to help distinguished users find good food.
 
 #### Models
 
-* Cities
+* City
 * Place
+  * Place Image
 * Submission
 * User
-* Guestbook
+* Guestbook (post mvp?)
 
 ## Installing and running the server
 
