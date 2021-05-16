@@ -1,8 +1,5 @@
-from datetime import datetime
-
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from django.utils import timezone
 
 from main.models import City, Place, PlaceImage, Submission
 

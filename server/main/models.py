@@ -1,7 +1,6 @@
 import uuid
 
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 
 
 class City(models.Model):
@@ -85,7 +84,8 @@ class Submission(models.Model):
     date_submitted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'<Submission: {self.uri}>'
+        return f'<Submission: {self.submitter_name}>'
+
 
 # class Guestbook(models.model):
 #
