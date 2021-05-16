@@ -2,6 +2,7 @@
 
 install:
 	@-${MAKE} dotenv
+	@rm -rf postgres-data/postgres/*
 	@docker compose up --remove-orphans
 
 start:
