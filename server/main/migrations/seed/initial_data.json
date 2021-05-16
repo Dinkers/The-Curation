@@ -1,0 +1,59 @@
+[
+    {
+        "model": "main.city",
+        "pk": "32f99a75-a6eb-4835-9fce-537f940b19fa",
+        "fields": {
+            "name": "Tokyo"
+        }
+    },
+    {
+        "model": "main.city",
+        "pk": "7ec4ea74-d03f-416e-b403-401b5eb65c15",
+        "fields": {
+            "name": "New York"
+        }
+    },
+    {
+        "model": "main.city",
+        "pk": "d5fbd785-8b55-4576-9cfd-dbdc19005948",
+        "fields": {
+            "name": "Seattle"
+        }
+    },
+    {
+        "model": "main.place",
+        "pk": "8a138fc9-efba-4444-b542-aece43f27db6",
+        "fields": {
+            "name": "Seafood Restaurant",
+            "website": "www.seafood.com",
+            "place_type": "Restaurant",
+            "address": "18 Sea lane",
+            "opening_times": "10:00 - 20:00",
+            "contact_info": "073985739\r\nseadude@seafood.com",
+            "key_info": "Locally sourced",
+            "speciality": "Swordfish",
+            "copy": "",
+            "city": "d5fbd785-8b55-4576-9cfd-dbdc19005948",
+            "created_at": "2021-05-15T11:50:12.228Z",
+            "modified_at": "2021-05-15T11:50:12.228Z"
+        }
+    },
+    {
+        "model": "main.place",
+        "pk": "eb56b5a4-001a-4684-8abb-0e154713e959",
+        "fields": {
+            "name": "Joe's Tavern",
+            "website": "www.joes.com",
+            "place_type": "Bar",
+            "address": "joes place\r\n10 joe street\r\ntokyo",
+            "opening_times": "18:00 - 00:00",
+            "contact_info": "074849374",
+            "key_info": "It's good",
+            "speciality": "Beer",
+            "copy": "Welcome to Joe's Tavern!",
+            "city": "32f99a75-a6eb-4835-9fce-537f940b19fa",
+            "created_at": "2021-05-15T11:48:00.096Z",
+            "modified_at": "2021-05-16T12:04:19.110Z"
+        }
+    }
+]

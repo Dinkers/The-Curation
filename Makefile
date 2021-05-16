@@ -10,7 +10,7 @@ start:
 
 database:
 	@docker exec -it curator.server python manage.py migrate
-	@#docker exec -it curator.server python manage.py loaddata main/migrations/seed/initial_data.json
+	@docker exec -it curator.server python manage.py loaddata main/migrations/seed/initial_data.json
 	@echo
 	@echo 'Create super user:'
 	@docker exec -it curator.server python manage.py createsuperuser
