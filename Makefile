@@ -1,8 +1,9 @@
-.PHONY: install start database dotenv psqlshell
+.PHONY: install start database dotenv servershell psqlshell
 
 install:
 	@-${MAKE} dotenv
 	@rm -rf postgres-data/postgres/*
+	@mkdir -p postgres-data/postgres/
 	@docker compose up --remove-orphans
 
 start:
@@ -10,16 +11,16 @@ start:
 
 
 database:
-	@docker exec -it curator.server python manage.py migrate
-	@docker exec -it curator.server python manage.py loaddata main/migrations/seed/initial_data.json
+	@docker exec -it curation.server python manage.py migrate
+	@docker exec -it curation.server python manage.py loaddata main/migrations/seed/initial_data.json
 	@echo
 	@echo 'Create super user:'
-	@docker exec -it curator.server python manage.py createsuperuser
+	@docker exec -it curation.server python manage.py createsuperuser
 
 
 dotenv:
-	@printf "POSTGRES_DB=the_curator_db\n \
-			 POSTGRES_USER=the_curator_user\n \
+	@printf "POSTGRES_DB=the_curation_db\n \
+			 POSTGRES_USER=the_curation_user\n \
 			 POSTGRES_PASSWORD=local_insecure_password\n \
 			 POSTGRES_HOSTNAME=postgres\n \
 			 POSTGRES_PORT=5432" \
@@ -28,8 +29,8 @@ dotenv:
 
 
 servershell:
-	@docker exec -it curator.server bash
+	@docker exec -it curation.server bash
 
 
 psqlshell:
-	@docker exec -it curator.postgres psql the_curator_db the_curator_user
+	@docker exec -it curation.postgres psql the_curation_db the_curation_user

@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   postgres:
-    container_name: curator.postgres
+    container_name: curation.postgres
     image: postgres:13
     restart: always
     environment:
@@ -21,7 +21,7 @@ services:
       retries: 5
 
   server:
-    container_name: curator.server
+    container_name: curation.server
     restart: always
     build: ./server
     ports:
