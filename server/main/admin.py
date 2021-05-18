@@ -1,3 +1,20 @@
 from django.contrib import admin
 
-# Register your models here.
+from main.models import City, Place, Submission, PlaceImage
+
+
+class PlaceImageInline(admin.TabularInline):
+    model = PlaceImage
+
+
+class PlaceAdmin(admin.ModelAdmin):
+    inlines = [
+        PlaceImageInline,
+    ]
+
+
+admin.site.register(City)
+admin.site.register(Submission)
+
+admin.site.register(Place, PlaceAdmin)
+admin.site.register(PlaceImage)

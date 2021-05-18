@@ -3,8 +3,8 @@ version: '3.5'
 services:
 
   postgres:
-    container_name: the-curator.postgres
-    image: postgres
+    container_name: curation.postgres
+    image: postgres:13
     restart: always
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -14,9 +14,14 @@ services:
       - ./postgres-data/postgres:/var/lib/postgresql/data
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} --host=postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   server:
-    container_name: the-curator.server
+    container_name: curation.server
     restart: always
     build: ./server
     ports:
@@ -31,4 +36,5 @@ services:
       - POSTGRES_HOSTNAME=${POSTGRES_HOSTNAME}
       - POSTGRES_PORT=${POSTGRES_PORT}
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy

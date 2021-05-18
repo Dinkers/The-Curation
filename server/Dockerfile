@@ -2,10 +2,10 @@ FROM python:3.8
 
 RUN apt-get update -y
 
-RUN mkdir /api
-COPY . /api
+RUN mkdir /server
+COPY . /server
 
-WORKDIR /api
+WORKDIR /server
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
