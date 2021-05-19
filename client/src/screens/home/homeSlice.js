@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
+import http from '../../modules/http'
 
 const citiesStub = [
   {
@@ -17,7 +19,15 @@ const citiesStub = [
     imageAlt: 'Brooklyn Bridge with NYC skyline in the background'
   }
   
-]; // This will be replaced with a response from the API
+] // This will be replaced with a response from the API
+
+export const getCities = createAsyncThunk(
+  'home/fetchCities',
+  async () => {
+    const response = await http.get('cities/')
+    return response.data
+  }
+)
 
 export const homeSlice = createSlice({
   name: 'home',
@@ -30,10 +40,15 @@ export const homeSlice = createSlice({
   },
 
   reducers: {
-    setSelectedCity: (state, action) => { state.selectedCity = action.payload }
+    setSelectedCity: (state, action) => { state.selectedCity = action.payload },
+  },
+  extraReducers: {
+    [getCities.fulfilled]: (state, action) => {
+      console.log(action.payload)
+    }
   }
-});
+})
 
-export const { setSelectedCity } = homeSlice.actions;
+export const { setSelectedCity } = homeSlice.actions
 
-export default homeSlice.reducer;
+export default homeSlice.reducer

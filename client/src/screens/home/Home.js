@@ -1,6 +1,16 @@
-import CitySelect from '../../components/CitySelect';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { getCities } from './homeSlice'
+import CitySelect from '../../components/CitySelect'
 
 function Home () {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCities())
+  })
+
   return (
     <>
       <section className="section">
@@ -14,7 +24,7 @@ function Home () {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

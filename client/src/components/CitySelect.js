@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity } from '../screens/home/homeSlice';
-import Card from '../components/Card';
-import Modal from '../components/Modal';
+import { setSelectedCity } from '../screens/home/homeSlice'
+import Card from '../components/Card'
+import Modal from '../components/Modal'
 
 const initialState = {
   isSelecting: false
-};
+}
 
 function CitySelect () {
-  const dispatch = useDispatch();
-  const selectedCity = useSelector((state) => state.home.selectedCity);
-  const cities = useSelector((state) => state.home.cities);
-  const [isSelecting, setIsSelecting] = useState(initialState.isSelecting);
+  const dispatch = useDispatch()
+  const selectedCity = useSelector((state) => state.home.selectedCity)
+  const cities = useSelector((state) => state.home.cities)
+  const [isSelecting, setIsSelecting] = useState(initialState.isSelecting)
   
   function handleCitySelection(index) {
-    dispatch(setSelectedCity(cities[index]));
-    setIsSelecting(false);
+    dispatch(setSelectedCity(cities[index]))
+    setIsSelecting(false)
   }
 
   const cityChoiceModalContent = cities.map((city, index) => (
@@ -33,8 +33,7 @@ function CitySelect () {
         />
       </div>
     </>
-    )
-  );
+  ))
 
   return (
     <>
@@ -53,7 +52,7 @@ function CitySelect () {
         closeHandler={ () => setIsSelecting(false) }
       />
     </>
-  );
+  )
 }
 
-export default CitySelect;
+export default CitySelect

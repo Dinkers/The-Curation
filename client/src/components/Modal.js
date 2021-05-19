@@ -1,4 +1,4 @@
-import styles from './Modal.module.scss';
+import styles from './Modal.module.scss'
 
 function Modal (props) {
   return(
@@ -20,4 +20,4 @@ function Modal (props) {
   )
 }
 
-export default Modal;
+export default Modal

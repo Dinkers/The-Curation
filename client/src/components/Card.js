@@ -1,9 +1,9 @@
 export const cardTypes = {
   image: 'image'
-};
+}
 
 function Card (props) {
-  let cardContent;
+  let cardContent
 
   const generateImageCard = () => (
     <>
@@ -16,16 +16,16 @@ function Card (props) {
         </div>
       </div>
     </>
-  );
+  )
 
   switch (props.cardType) {
     case cardTypes.image:
-      cardContent = generateImageCard();
-      break;
+      cardContent = generateImageCard()
+      break
 
     default:
-      cardContent = ( <p>Please specify a type</p>) ;
-      break;
+      cardContent = ( <p>Please specify a type</p>) 
+      break
   }
 
   return (
@@ -34,7 +34,7 @@ function Card (props) {
         { cardContent }
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
