@@ -20,6 +20,12 @@ const citiesStub = [
   }
 ] // This will be replaced with a response from the API
 
+const filtersStub = [
+  'Vegan',
+  'Locally sourced',
+  'Farm'
+]
+
 export const getCities = createAsyncThunk(
   'home/fetchCities',
   async () => await http.get('cities/')
@@ -31,13 +37,24 @@ export const homeSlice = createSlice({
   initialState: {
     cities: citiesStub,
     citiesRequest: 'initial',
-    filters: [],
+    selectedCity: citiesStub[0],
+
+    filters: filtersStub,
+    selectedFilters: [],
+
     places: [],
-    selectedCity: citiesStub[0]
   },
 
   reducers: {
-    setSelectedCity: (state, action) => { state.selectedCity = action.payload }
+    setSelectedCity: (state, action) => { state.selectedCity = action.payload },
+    setSelectedFilter: (state, action) => { 
+      if (!state.selectedFilters.includes(action.payload)) {
+        state.selectedFilters.push(action.payload)
+      } else {
+        state.selectedFilters = 
+          state.selectedFilters.filter((filter) => filter !== action.payload)
+      }
+    }
   },
 
   extraReducers: {
@@ -56,6 +73,6 @@ export const homeSlice = createSlice({
   }
 })
 
-export const { setSelectedCity } = homeSlice.actions
+export const { setSelectedCity, setSelectedFilter } = homeSlice.actions
 
 export default homeSlice.reducer

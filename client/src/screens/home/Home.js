@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { getCities } from './homeSlice'
 import CitySelect from '../../components/CitySelect'
+import FilterSelect from '../../components/FilterSelect'
 
 function Home () {
   const dispatch = useDispatch()
@@ -19,7 +20,10 @@ function Home () {
           <CitySelect />
         </div>
 
-        <h3 className="title is-4">Filters</h3>
+        <div className="block">
+          <h3 className="title is-4">Filters</h3>
+          <FilterSelect />
+        </div>
       </div>
     </section>
   )

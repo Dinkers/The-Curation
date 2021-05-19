@@ -5,7 +5,7 @@ const get = async (endpoint, args) => {
 
   const url = 
     `${baseUrl}/${endpoint}${args ? ('/' + args) : ''}`
-  
+
   return fetch(url)
     .then(response => response.json())
     .then(data => data)
@@ -21,7 +21,7 @@ const post = (endpoint, data) => {
     },
     body: JSON.stringify(data)
   }
-  
+
   return fetch(endpoint, options)
     .then(response => response.json())
     .then(data => data)
