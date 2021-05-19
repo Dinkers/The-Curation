@@ -18,15 +18,11 @@ const citiesStub = [
     imageURL: 'https://images.unsplash.com/photo-1522083165195-3424ed129620',
     imageAlt: 'Brooklyn Bridge with NYC skyline in the background'
   }
-  
 ] // This will be replaced with a response from the API
 
 export const getCities = createAsyncThunk(
   'home/fetchCities',
-  async () => {
-    const response = await http.get('cities/')
-    return response.data
-  }
+  async () => await http.get('cities/')
 )
 
 export const homeSlice = createSlice({
@@ -34,17 +30,28 @@ export const homeSlice = createSlice({
 
   initialState: {
     cities: citiesStub,
+    citiesRequest: 'initial',
     filters: [],
     places: [],
     selectedCity: citiesStub[0]
   },
 
   reducers: {
-    setSelectedCity: (state, action) => { state.selectedCity = action.payload },
+    setSelectedCity: (state, action) => { state.selectedCity = action.payload }
   },
+
   extraReducers: {
+    [getCities.pending]: (state) => {
+      state.citiesRequest = 'pending'
+    },
+
     [getCities.fulfilled]: (state, action) => {
-      console.log(action.payload)
+      state.cities = action.payload
+      state.citiesRequest = 'completed'
+    },
+
+    [getCities.rejected]: (state) => {
+      state.citiesRequest = 'failed'
     }
   }
 })

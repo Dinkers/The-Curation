@@ -12,8 +12,8 @@ function Modal (props) {
         </section>
       </div>
       <button 
-        className={`modal-close is-large ${styles.modalClose} ${styles.isOverride}`} 
         aria-label="close"
+        className={`modal-close is-large ${styles.modalClose} ${styles.isOverride}`} 
         onClick={ () => props.closeHandler() }
       ></button>
     </div>

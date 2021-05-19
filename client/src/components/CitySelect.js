@@ -21,18 +21,16 @@ function CitySelect () {
   }
 
   const cityChoiceModalContent = cities.map((city, index) => (
-    <>
-      <div className="block">
-        <Card
-          cardType="image"
-          imageRatio="is-2by1"
-          image={ city.imageURL }
-          imageAlt={ city.imageAlt }
-          clickHandler={ () => handleCitySelection(index) }
-          title={ city.name }
-        />
-      </div>
-    </>
+    <div className="block" key={`city-select-block-${index}`}>
+      <Card
+        cardType="image"
+        clickHandler={ () => handleCitySelection(index) }
+        image={ city.imageURL }
+        imageAlt={ city.imageAlt }
+        imageRatio="is-2by1"
+        title={ city.name }
+      />
+    </div>
   ))
 
   return (
