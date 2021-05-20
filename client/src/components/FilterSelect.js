@@ -31,8 +31,7 @@ function FilterSelect () {
         />
       </div>
     )
-  }
-  )
+  })
 
   return (
     <>
