@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-import Home from './screens/home/Home'
-import './assets/styles/App.scss'
+import 'assets/styles/App.scss'
+
+import Home from 'screens/Home/Home'
 
 // A dictionary of available screens in the app
 const screens = {

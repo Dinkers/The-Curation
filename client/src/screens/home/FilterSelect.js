@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedFilter } from '../screens/home/homeSlice'
+import { setSelectedFilter } from 'screens/Home/homeSlice'
 
-import Card from '../components/Card'
+import Card from 'components/Card/Card'
 
 function FilterSelect () {
   const dispatch = useDispatch()

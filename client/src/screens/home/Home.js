@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { getCities } from './homeSlice'
-import CitySelect from '../../components/CitySelect'
-import FilterSelect from '../../components/FilterSelect'
+import CitySelect from 'screens/Home/CitySelect'
+import FilterSelect from 'screens/Home/FilterSelect'
 
 function Home () {
   const dispatch = useDispatch()

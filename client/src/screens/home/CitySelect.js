@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity } from '../screens/home/homeSlice'
-import Card from '../components/Card'
-import Modal from '../components/Modal'
+import { setSelectedCity } from 'screens/Home/homeSlice'
+import Card from 'components/Card/Card'
+import Modal from 'components/Modal/Modal'
 
 const initialState = {
   isSelecting: false
