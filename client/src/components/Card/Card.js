@@ -1,9 +1,14 @@
+import styles from './Card.module.scss'
+
 export const cardTypes = {
   image: 'image'
-};
+}
 
 function Card (props) {
-  let cardContent;
+  
+  function handleClick () {
+    if (props.clickHandler) props.clickHandler()
+  }
 
   const generateImageCard = () => (
     <>
@@ -16,25 +21,29 @@ function Card (props) {
         </div>
       </div>
     </>
-  );
+  )
+
+  let cardContent
 
   switch (props.cardType) {
     case cardTypes.image:
-      cardContent = generateImageCard();
-      break;
+      cardContent = generateImageCard()
+      break
 
     default:
-      cardContent = ( <p>Please specify a type</p>) ;
-      break;
+      cardContent = ( <p>Please specify a type</p>) 
+      break
   }
 
   return (
     <>
-      <div className="card" onClick={ () => props.clickHandler() }>
+      <div 
+        className={`card ${styles.card} ${props.isSelected ? styles.isSelected: ''}`} 
+        onClick={ () => handleClick() }>
         { cardContent }
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

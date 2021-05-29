@@ -1,4 +1,4 @@
-import styles from './Modal.module.scss';
+import styles from './Modal.module.scss'
 
 function Modal (props) {
   return(
@@ -12,12 +12,12 @@ function Modal (props) {
         </section>
       </div>
       <button 
-        className={`modal-close is-large ${styles.modalClose} ${styles.isOverride}`} 
         aria-label="close"
+        className={`modal-close is-large ${styles.modalClose} ${styles.isOverride}`} 
         onClick={ () => props.closeHandler() }
       ></button>
     </div>
   )
 }
 
-export default Modal;
+export default Modal
