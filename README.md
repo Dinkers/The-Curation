@@ -4,7 +4,7 @@ Web application to help distinguished users find good food.
 
 ## Design and Specification
 
-![initial design]()![figma_01](/Users/kayra/Documents/Dinkers/the-curation/docs/figma_01.png)
+![initial design](docs/figma_01.png))
 
 #### Pages
 
@@ -22,11 +22,14 @@ Web application to help distinguished users find good food.
 * User
 * Guestbook (post mvp?)
 
-## Installing and running the server
 
-**Please ensure ports 8000 and 5432 are free before running any commands.**
+## Set up and installation
 
-Installing and running the server:
+**Please ensure ports 8000 and 3000 are free before running any commands.**
+
+### Server
+
+Install and run the server:
 
 ```bash
 make install
@@ -38,55 +41,17 @@ Make the database (**while the server is running**):
 make database
 ```
 
-The server should now be accessible at [http://0.0.0.0:8000/](http://0.0.0.0:8000/). 
+Check the [server readme](server/README.md) for more information.
 
-The admin panel can be accessed at [http://0.0.0.0:8000/admin](http://0.0.0.0:8000/admin).
+### Client
 
-### Development Tools
-
-The [insomnia](https://insomnia.rest) project can be found at [docs/the_curation_insomnia_project.json](docs/the_curation_insomnia_project.json).
-
-### Updating the database seed
-
-https://docs.djangoproject.com/en/3.1/howto/initial-data/
-
-#### Option 1 - manual initial_data.json file update:
-
-1. Update the [json file](server/main/migrations/seed/initial_data.json)
-
-   (uuid creation if you need it):
-
-   ```python
-   import uuid
-   uuid.uuid4()
-   # UUID('a9800c55-93a2-4bd3-9ee6-7c83a9b13ae4')
-   ```
-
-2. Delete the db
-
-   ```bash
-   rm -rf postgres-data/postgres/*
-   ```
-
-3. Recreate db
-
-   ```bash
-   make database
-   ```
-
-#### Option 2 - update models and generate inital data json:
-
-```python
-from main.models import Voice, Channel
-voice = Voice(name='BBC', homepage_url='https://www.bbc.co.uk')
-voice.save()
-channel = Channel(title='BBC - UK', source_url='https://www.bbc.co.uk', url_to_scrape='http://feeds.bbci.co.uk/news/rss.xml', channel_type='O', voice=voice)
-channel.save()
-```
+Install and run the client:
 
 ```bash
-docker exec -it curator.server python manage.py dumpdata main | python -m json.tool > initial_data.json
+cd client
+npm install
+npm start
 ```
 
-https://docs.djangoproject.com/en/3.1/ref/django-admin/#django-admin-dumpdata
+Check the [client readme](client/README.md) for more information.
 
