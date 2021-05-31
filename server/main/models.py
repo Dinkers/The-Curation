@@ -31,7 +31,6 @@ class Place(models.Model):
     website = models.CharField(max_length=200)
     place_type = models.CharField(max_length=10, choices=PlaceType.choices, default=PlaceType.RESTAURANT)
     address = models.TextField(blank=True)
-    opening_times = models.TextField(blank=True)
     contact_info = models.TextField(blank=True)
     copy = models.TextField(blank=True)
 
@@ -40,17 +39,39 @@ class Place(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
-    # "Premature optimization is the root of all evil."
-
     # Address can be improved if needed:
     # https://pypi.org/project/django-address/
     # https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
 
-    # Opening times can be improved if needed:
-    # https://stackoverflow.com/questions/28450106/business-opening-hours-in-django
-
     def __str__(self):
         return f'<Place: {self.name} (Type: {self.place_type})>'
+
+
+class PlaceOpeningHours(models.Model):
+
+    WEEKDAYS = [
+        (1, _("Monday")),
+        (2, _("Tuesday")),
+        (3, _("Wednesday")),
+        (4, _("Thursday")),
+        (5, _("Friday")),
+        (6, _("Saturday")),
+        (7, _("Sunday")),
+    ]
+
+    class Meta:
+        db_table = 'server_place_opening_hours'
+        ordering = ('weekday', 'from_hour')
+        unique_together = ('weekday', 'from_hour', 'to_hour')
+
+    weekday = models.IntegerField(choices=WEEKDAYS)
+    from_hour = models.TimeField()
+    from_hour = models.TimeField()
+
+    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'<Place Opening Hours: {self.weekday} {self.from_hour}:{self.from_hour} (Place: {self.place.name})>'
 
 
 class PlaceUSP(models.Model):
@@ -70,7 +91,7 @@ class PlaceUSP(models.Model):
 class PlaceVitalInfo(models.Model):
 
     class Meta:
-        db_table = 'server_place_vitalinfos'
+        db_table = 'server_place_vital_infos'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     vital_info = models.CharField(max_length=200)
