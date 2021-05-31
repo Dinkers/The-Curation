@@ -57,6 +57,34 @@ class Place(models.Model):
         return f'<Place: {self.name} (Type: {self.place_type})>'
 
 
+class PlaceUSP(models.Model):
+
+    class Meta:
+        db_table = 'server_place_usps'
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    usp = models.CharField(max_length=200)
+
+    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'<Place USP: {self.usp} (Place: {self.place.name})>'
+
+
+class PlaceVitalInfo(models.Model):
+
+    class Meta:
+        db_table = 'server_place_vitalinfos'
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    vital_info = models.CharField(max_length=200)
+
+    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'<Place VitalInfo: {self.vital_info} (Place: {self.place.name})>'
+
+
 class PlaceImage(models.Model):
 
     class Meta:
