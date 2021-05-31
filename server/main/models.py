@@ -33,8 +33,6 @@ class Place(models.Model):
     address = models.TextField(blank=True)
     opening_times = models.TextField(blank=True)
     contact_info = models.TextField(blank=True)
-    key_info = models.TextField(blank=True)
-    speciality = models.TextField(blank=True)
     copy = models.TextField(blank=True)
 
     city = models.ForeignKey(City, on_delete=models.CASCADE)
@@ -50,8 +48,6 @@ class Place(models.Model):
 
     # Opening times can be improved if needed:
     # https://stackoverflow.com/questions/28450106/business-opening-hours-in-django
-
-    # key_info and speciality use yet to be fully defined
 
     def __str__(self):
         return f'<Place: {self.name} (Type: {self.place_type})>'
