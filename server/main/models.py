@@ -34,7 +34,7 @@ class Place(models.Model):
     address = models.TextField(blank=True)
     email_address = models.EmailField(blank=True)
     copy = models.TextField(blank=True)
-    
+
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: "
                                                                    "'+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
@@ -71,9 +71,9 @@ class PlaceOpeningHours(models.Model):
 
     weekday = models.IntegerField(choices=WEEKDAYS)
     from_hour = models.TimeField()
-    from_hour = models.TimeField()
+    to_hour = models.TimeField()
 
-    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, related_name='opening_hours', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'<Place Opening Hours: {self.weekday} {self.from_hour}:{self.from_hour} (Place: {self.place.name})>'
@@ -87,7 +87,7 @@ class PlaceUSP(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     usp = models.CharField(max_length=200)
 
-    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, related_name='usps', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'<Place USP: {self.usp} (Place: {self.place.name})>'
@@ -101,7 +101,7 @@ class PlaceVitalInfo(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     vital_info = models.CharField(max_length=200)
 
-    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, related_name='vital_infos', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'<Place VitalInfo: {self.vital_info} (Place: {self.place.name})>'
@@ -115,7 +115,7 @@ class PlaceImage(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     uri = models.ImageField(upload_to='uploads/')
 
-    place = models.ForeignKey(Place, related_name='place_images', on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, related_name='images', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'<Place Image: {self.uri} (Place: {self.place.name})>'
