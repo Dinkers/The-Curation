@@ -31,7 +31,7 @@ function Card (props) {
       break
 
     default:
-      cardContent = ( <p>Please specify a type</p>) 
+      cardContent = ( <p>Please specify a 'Card' type</p>) 
       break
   }
 

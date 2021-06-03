@@ -1,29 +1,21 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 
-import { getCities } from './homeSlice'
-import CitySelect from 'screens/Home/CitySelect'
-import FilterSelect from 'screens/Home/FilterSelect'
+import CitySelect from 'screens/Home/ui/CitySelect'
+import FilterSelect from 'screens/Home/ui/FilterSelect'
+import LocationSelect from 'screens/Home/ui/PlaceSelect'
 
 function Home () {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getCities())
-  })
-
   return (
     <section className="section">
       <div className="container">
-        <div className="block">
-          <h3 className="title is-4">Find places in</h3>
-          <CitySelect />
-        </div>
+        <CitySelect />
 
         <div className="block">
           <h3 className="title is-4">Filters</h3>
           <FilterSelect />
         </div>
+
+        <LocationSelect />
       </div>
     </section>
   )

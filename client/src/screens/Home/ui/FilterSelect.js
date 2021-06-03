@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedFilter } from 'screens/Home/homeSlice'
+import { setSelectedFilter } from 'screens/Home/data/homeSlice'
 
 import Card from 'components/Card/Card'
 
