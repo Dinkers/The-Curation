@@ -14,9 +14,9 @@ Make the database (**while the server is running**):
 make database
 ```
 
-The server should now be accessible at [http://0.0.0.0:8000/](http://0.0.0.0:8000/).
+The server should now be accessible at [http://0.0.0.0:8000/](http://0.0.0.0:8000/)
 
-The admin panel can be accessed at [http://0.0.0.0:8000/admin](http://0.0.0.0:8000/admin).
+The admin panel can be accessed at [http://0.0.0.0:8000/admin](http://0.0.0.0:8000/admin)
 
 ### Development Tools
 
@@ -61,7 +61,7 @@ channel.save()
 ```
 
 ```bash
-docker exec -it curator.server python manage.py dumpdata main | python -m json.tool > initial_data.json
+docker exec -it curation.server python manage.py dumpdata main | python -m json.tool > initial_data.json
 ```
 
 https://docs.djangoproject.com/en/3.1/ref/django-admin/#django-admin-dumpdata
