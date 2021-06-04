@@ -16,16 +16,15 @@ class City(models.Model):
         return f'<City: {self.name}>'
 
 
-class PlaceType(models.TextChoices):
-    RESTAURANT = 'Restaurant'
-    CAFE = 'Cafe'
-    BAR = 'Bar'
-
-
 class Place(models.Model):
 
     class Meta:
         db_table = 'server_places'
+
+    class PlaceType(models.TextChoices):
+        RESTAURANT = 'Restaurant'
+        CAFE = 'Cafe'
+        BAR = 'Bar'
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=150)
@@ -54,22 +53,20 @@ class Place(models.Model):
 
 class PlaceOpeningHours(models.Model):
 
-    WEEKDAYS = [
-        (1, 'Monday'),
-        (2, 'Tuesday'),
-        (3, 'Wednesday'),
-        (4, 'Thursday'),
-        (5, 'Friday'),
-        (6, 'Saturday'),
-        (7, 'Sunday')
-    ]
-
     class Meta:
         db_table = 'server_place_opening_hours'
-        ordering = ('weekday', 'from_hour')
         unique_together = ('weekday', 'from_hour', 'to_hour')
 
-    weekday = models.IntegerField(choices=WEEKDAYS)
+    class Weekdays(models.TextChoices):
+        MONDAY = 'Monday'
+        TUESDAY = 'Tuesday'
+        WEDNESDAY = 'Wednesday'
+        THURSDAY = 'Thursday'
+        FRIDAY = 'Friday'
+        SATURDAY = 'Saturday'
+        SUNDAY = 'Sunday'
+
+    weekday = models.CharField(max_length=10, choices=Weekdays.choices)
     from_hour = models.TimeField()
     to_hour = models.TimeField()
 

@@ -1,137 +1,130 @@
 [
     {
         "fields": {
-            "name": "London"
-        },
-        "model": "main.city",
-        "pk": "58f166a3-625e-4357-8438-eae826259636"
-    },
-    {
-        "fields": {
-            "name": "Berlin"
-        },
-        "model": "main.city",
-        "pk": "9be3b299-3d5c-4ca0-8fe8-63c50e7ce110"
-    },
-    {
-        "fields": {
             "name": "New York"
         },
         "model": "main.city",
-        "pk": "a13b7de2-e2f7-4542-b467-ded803cd7297"
+        "pk": "45ecce9c-8b5f-461d-aa2d-65de4b510b64"
     },
     {
         "fields": {
             "name": "Tokyo"
         },
         "model": "main.city",
-        "pk": "bcc685a1-be63-4e9a-bdb2-199871724cc0"
+        "pk": "a2ce0628-1186-4c11-87b5-56785dd7cff5"
     },
     {
         "fields": {
             "name": "Seattle"
         },
         "model": "main.city",
-        "pk": "d87e834e-715d-474c-9c70-01139b4a401b"
+        "pk": "d48d791e-4547-4484-a507-5333d33c25c5"
     },
     {
         "fields": {
-            "address": "The Shard\r\n16 Shard Street\r\nLondon\r\nW13",
-            "city": "58f166a3-625e-4357-8438-eae826259636",
-            "copy": "Watch people while you eat",
-            "created_at": "2021-06-03T23:10:50.218Z",
-            "email_address": "hi@theshard.com",
-            "modified_at": "2021-06-03T23:10:50.218Z",
-            "name": "The Shard",
-            "phone_number": "+447384794",
-            "place_type": "Restaurant",
-            "website": "www.theshard.com"
+            "name": "London"
         },
-        "model": "main.place",
-        "pk": "15abc15c-fde9-4be3-a941-5218eca95245"
+        "model": "main.city",
+        "pk": "ef4af025-3154-434c-b4a3-2fd800cfff92"
     },
     {
         "fields": {
-            "address": "18 Joe's Street\r\nWestfield\r\nLondon\r\nSe23 3SX",
-            "city": "58f166a3-625e-4357-8438-eae826259636",
-            "copy": "Welcome to the wonderful Joe's.",
-            "created_at": "2021-06-03T23:06:12.079Z",
+            "address": "18 Bar Street\r\nHackney\r\nLondon\r\nSE23 6SX",
+            "city": "ef4af025-3154-434c-b4a3-2fd800cfff92",
+            "copy": "Come to Joe's and get wasted with Joe!",
+            "created_at": "2021-06-04T10:50:39.362Z",
             "email_address": "hello@joes.com",
-            "modified_at": "2021-06-03T23:06:12.079Z",
+            "modified_at": "2021-06-04T10:50:39.362Z",
             "name": "Joe's Tavern",
-            "phone_number": "+44747837585",
+            "phone_number": "+4474637485",
             "place_type": "Bar",
-            "website": "www.joestavern.com"
+            "website": "www.joes.com"
         },
         "model": "main.place",
-        "pk": "a2a853bb-3725-47ba-a98f-7b3b55d770c1"
+        "pk": "b374b57c-5ff6-4554-a42a-0c05433a7b0c"
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 1
+            "address": "The Shard\r\n32 London Bridge St \r\nLondon \r\nSE1 9SG",
+            "city": "ef4af025-3154-434c-b4a3-2fd800cfff92",
+            "copy": "Enjoy a tasty meal and a view of London at the same time.",
+            "created_at": "2021-06-04T10:59:19.287Z",
+            "email_address": "hi@shard.com",
+            "modified_at": "2021-06-04T10:59:19.287Z",
+            "name": "The Shard",
+            "phone_number": "+4473597374",
+            "place_type": "Restaurant",
+            "website": "www.shard.com"
+        },
+        "model": "main.place",
+        "pk": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9"
+    },
+    {
+        "fields": {
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Monday"
         },
         "model": "main.placeopeninghours",
         "pk": 1
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 2
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Tuesday"
         },
         "model": "main.placeopeninghours",
         "pk": 2
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 3
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Wednesday"
         },
         "model": "main.placeopeninghours",
         "pk": 3
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 4
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Thursday"
         },
         "model": "main.placeopeninghours",
         "pk": 4
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 5
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Friday"
         },
         "model": "main.placeopeninghours",
         "pk": 5
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 6
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Saturday"
         },
         "model": "main.placeopeninghours",
         "pk": 6
     },
     {
         "fields": {
-            "from_hour": "08:00:00",
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "to_hour": "23:00:00",
-            "weekday": 7
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Sunday"
         },
         "model": "main.placeopeninghours",
         "pk": 7
@@ -139,9 +132,9 @@
     {
         "fields": {
             "from_hour": "12:00:00",
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
-            "to_hour": "23:00:00",
-            "weekday": 5
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Monday"
         },
         "model": "main.placeopeninghours",
         "pk": 8
@@ -149,9 +142,9 @@
     {
         "fields": {
             "from_hour": "12:00:00",
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
-            "to_hour": "23:00:00",
-            "weekday": 6
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Tuesday"
         },
         "model": "main.placeopeninghours",
         "pk": 9
@@ -159,67 +152,99 @@
     {
         "fields": {
             "from_hour": "12:00:00",
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
-            "to_hour": "23:00:00",
-            "weekday": 7
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Wednesday"
         },
         "model": "main.placeopeninghours",
         "pk": 10
     },
     {
         "fields": {
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "usp": "Joe lives here"
+            "from_hour": "12:00:00",
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Thursday"
         },
-        "model": "main.placeusp",
-        "pk": "61fa602c-42e9-4e34-8ad0-7f170d0ea03e"
+        "model": "main.placeopeninghours",
+        "pk": 11
     },
     {
         "fields": {
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
+            "from_hour": "12:00:00",
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Friday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "from_hour": "12:00:00",
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Saturday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "from_hour": "12:00:00",
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Sunday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "usp": "Two Michelin stars"
+        },
+        "model": "main.placeusp",
+        "pk": "11a7ee2a-2261-45c0-b353-a7d4ca4ec5d6"
+    },
+    {
+        "fields": {
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
             "usp": "View of London"
         },
         "model": "main.placeusp",
-        "pk": "644ae868-e42f-46e3-8ec4-a26d70c38877"
+        "pk": "7b84f4af-870c-4a3a-b4ea-c5f8c708df1e"
     },
     {
         "fields": {
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "usp": "Great alcohol"
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "usp": "Locally brewed beer"
         },
         "model": "main.placeusp",
-        "pk": "cebecaf1-3fd3-42a3-8e64-218e4802989c"
+        "pk": "acd28070-c7d5-447b-bc12-18284349b87f"
     },
     {
         "fields": {
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
-            "usp": "Local produce"
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "usp": "Red seats"
         },
         "model": "main.placeusp",
-        "pk": "e159ad85-0410-41f6-883e-4c407ccec3b4"
+        "pk": "d218a3cf-8ddd-4826-a8e0-6a16cee8395e"
     },
     {
         "fields": {
-            "place": "a2a853bb-3725-47ba-a98f-7b3b55d770c1",
-            "vital_info": "Halal"
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "vital_info": "Helal beer"
         },
         "model": "main.placevitalinfo",
-        "pk": "32d4954e-d221-471e-96a7-68da8a6f5a6b"
+        "pk": "25739bb5-aab3-473c-b57d-d1082685bcc7"
     },
     {
         "fields": {
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
-            "vital_info": "Smart Dress Only"
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "vital_info": "Vegan friendly"
         },
         "model": "main.placevitalinfo",
-        "pk": "93f2ac6d-e996-4d24-be7c-b394023f5ecf"
-    },
-    {
-        "fields": {
-            "place": "15abc15c-fde9-4be3-a941-5218eca95245",
-            "vital_info": "Vegan Friendly"
-        },
-        "model": "main.placevitalinfo",
-        "pk": "c066edba-c36f-4b51-82bc-d09e60fc45e2"
+        "pk": "f32540e1-c1aa-4ec0-a41d-156da21e2696"
     }
 ]
