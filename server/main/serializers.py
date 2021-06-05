@@ -19,7 +19,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 class PlaceSerializer(serializers.ModelSerializer):
 
-    place_images = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    images = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    opening_hours = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    usps = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    vital_infos = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Place
@@ -29,13 +32,13 @@ class PlaceSerializer(serializers.ModelSerializer):
             'website',
             'place_type',
             'address',
-            'opening_times',
-            'contact_info',
-            'key_info',
-            'speciality',
+            'email_address',
             'copy',
             'city',
-            'place_images'
+            'images',
+            'opening_hours',
+            'usps',
+            'vital_infos',
         ]
 
 

@@ -67,7 +67,7 @@
             "weekday": "Monday"
         },
         "model": "main.placeopeninghours",
-        "pk": 1
+        "pk": "185156f1-5c68-4e04-92ed-3cf11088c009"
     },
     {
         "fields": {
@@ -77,7 +77,7 @@
             "weekday": "Tuesday"
         },
         "model": "main.placeopeninghours",
-        "pk": 2
+        "pk": "58711714-5f78-48b7-9c56-e338b76f1f53"
     },
     {
         "fields": {
@@ -87,7 +87,7 @@
             "weekday": "Wednesday"
         },
         "model": "main.placeopeninghours",
-        "pk": 3
+        "pk": "96b07b84-202c-4b89-8cc6-5d7db858fd1b"
     },
     {
         "fields": {
@@ -97,7 +97,7 @@
             "weekday": "Thursday"
         },
         "model": "main.placeopeninghours",
-        "pk": 4
+        "pk": "7157b889-2d16-403d-aa1a-545d7de187da"
     },
     {
         "fields": {
@@ -107,7 +107,7 @@
             "weekday": "Friday"
         },
         "model": "main.placeopeninghours",
-        "pk": 5
+        "pk": "8b00d51f-3447-48df-a0d7-06382463b4e7"
     },
     {
         "fields": {
@@ -117,7 +117,7 @@
             "weekday": "Saturday"
         },
         "model": "main.placeopeninghours",
-        "pk": 6
+        "pk": "21b3b8d6-2ca7-4781-af58-7dfe3d783d92"
     },
     {
         "fields": {
@@ -127,7 +127,7 @@
             "weekday": "Sunday"
         },
         "model": "main.placeopeninghours",
-        "pk": 7
+        "pk": "854650ec-c6c0-4159-a0b2-baf10d4f559d"
     },
     {
         "fields": {
@@ -137,7 +137,7 @@
             "weekday": "Monday"
         },
         "model": "main.placeopeninghours",
-        "pk": 8
+        "pk": "b4a3ec4b-726c-4872-9a08-d1f38f9519d5"
     },
     {
         "fields": {
@@ -147,7 +147,7 @@
             "weekday": "Tuesday"
         },
         "model": "main.placeopeninghours",
-        "pk": 9
+        "pk": "596c2439-a130-4ed5-9184-817e81a44a36"
     },
     {
         "fields": {
@@ -157,7 +157,7 @@
             "weekday": "Wednesday"
         },
         "model": "main.placeopeninghours",
-        "pk": 10
+        "pk": "5b596f65-3cde-46dc-a252-c86c28b21a7f"
     },
     {
         "fields": {
@@ -167,7 +167,7 @@
             "weekday": "Thursday"
         },
         "model": "main.placeopeninghours",
-        "pk": 11
+        "pk": "94e0baad-cb52-44ec-acb1-6e23cc25f4b7"
     },
     {
         "fields": {
@@ -177,7 +177,7 @@
             "weekday": "Friday"
         },
         "model": "main.placeopeninghours",
-        "pk": 12
+        "pk": "3134a8d2-bfd4-49ea-9ca6-d0ef3460b941"
     },
     {
         "fields": {
@@ -187,7 +187,7 @@
             "weekday": "Saturday"
         },
         "model": "main.placeopeninghours",
-        "pk": 13
+        "pk": "910bddf5-bde9-42db-b280-1525f4f27389"
     },
     {
         "fields": {
@@ -197,7 +197,7 @@
             "weekday": "Sunday"
         },
         "model": "main.placeopeninghours",
-        "pk": 14
+        "pk": "36a663cd-b9a2-4c52-97ab-645f0cec87b3"
     },
     {
         "fields": {

@@ -66,6 +66,7 @@ class PlaceOpeningHours(models.Model):
         SATURDAY = 'Saturday'
         SUNDAY = 'Sunday'
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     weekday = models.CharField(max_length=10, choices=Weekdays.choices)
     from_hour = models.TimeField()
     to_hour = models.TimeField()
