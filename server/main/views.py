@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
-from rest_framework import permissions
-from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import permissions, viewsets, status
 
 from main.models import City, Place, Submission, PlaceImage
 from main.serializers import PlaceSerializer, SubmissionSerializer, CitySerializer, UserSerializer, PlaceImageSerializer
@@ -38,3 +39,24 @@ class PlaceImageViewSet(viewsets.ModelViewSet):
     queryset = PlaceImage.objects.all().order_by('-place')
     serializer_class = PlaceImageSerializer
     # permission_classes = [permissions.IsAuthenticated]
+
+
+@api_view(['GET'])
+def filters_list(request, city_id=None):
+    """
+    List all filters available, filter by city if provided.
+    """
+    
+    if city_id:
+
+        try:
+            city = City.objects.get(id=city_id)
+            # gather city usps
+            # gather city vital infos
+            # return all
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except City.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+    else:
+        return Response(status=status.HTTP_207_MULTI_STATUS)
