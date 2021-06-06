@@ -65,30 +65,22 @@ def filters_list(request, city_id=None):
         if not places:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
+        usps = []
+        vital_infos = []
         for place in places:
-
-            usps = place.usps.distinct()
-            if usps:
-                serialized_usps = [PlaceUSPSerializer(usp).data for usp in usps]
-                filters_response_data['usps'].extend(serialized_usps)
-
-            vital_infos = place.vital_infos.distinct()
-            if vital_infos:
-                serialized_vital_infos = [PlaceVitalInfoSerializer(vital_info).data for vital_info in vital_infos]
-                filters_response_data['vital_infos'].extend(serialized_vital_infos)
-
-        return Response(filters_response_data)
+            usps.extend(place.usps.distinct())
+            vital_infos.extend(place.vital_infos.distinct())
 
     else:
-
         usps = PlaceUSP.objects.distinct()
-        if usps:
-            serialized_usps = [PlaceUSPSerializer(usp).data for usp in usps]
-            filters_response_data['usps'].append(serialized_usps)
-
         vital_infos = PlaceVitalInfo.objects.distinct()
-        if vital_infos:
-            serialized_vital_infos = [PlaceVitalInfoSerializer(vital_info).data for vital_info in vital_infos]
-            filters_response_data['vital_infos'].append(serialized_vital_infos)
 
-        return Response(filters_response_data)
+    if usps:
+        serialized_usps = [PlaceUSPSerializer(usp).data for usp in usps]
+        filters_response_data['usps'].append(serialized_usps)
+
+    if vital_infos:
+        serialized_vital_infos = [PlaceVitalInfoSerializer(vital_info).data for vital_info in vital_infos]
+        filters_response_data['vital_infos'].append(serialized_vital_infos)
+
+    return Response(filters_response_data)
