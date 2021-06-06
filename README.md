@@ -4,7 +4,7 @@ Web application to help distinguished users find good food.
 
 ## Design and Specification
 
-![initial design](docs/figma_01.png))
+![initial design](docs/figma_01.png)
 
 #### Pages
 
