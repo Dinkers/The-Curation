@@ -61,6 +61,22 @@
     },
     {
         "fields": {
+            "address": "132-1226, Zoshiki,\r\nTokyo,\r\nJapan",
+            "city": "a2ce0628-1186-4c11-87b5-56785dd7cff5",
+            "copy": "Drink coffee in peace.",
+            "created_at": "2021-06-07T19:40:12.821Z",
+            "email_address": "contact@nakayamacoffee.jp",
+            "modified_at": "2021-06-07T19:40:12.821Z",
+            "name": "\u4e2d\u5c71\u30b3\u30fc\u30d2\u30fc",
+            "phone_number": "+81699987239",
+            "place_type": "Cafe",
+            "website": "www.nakayamacoffee.jp"
+        },
+        "model": "main.place",
+        "pk": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3"
+    },
+    {
+        "fields": {
             "from_hour": "18:00:00",
             "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
             "to_hour": "00:00:00",
@@ -74,46 +90,6 @@
             "from_hour": "18:00:00",
             "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
             "to_hour": "00:00:00",
-            "weekday": "Tuesday"
-        },
-        "model": "main.placeopeninghours",
-        "pk": "58711714-5f78-48b7-9c56-e338b76f1f53"
-    },
-    {
-        "fields": {
-            "from_hour": "18:00:00",
-            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
-            "to_hour": "00:00:00",
-            "weekday": "Wednesday"
-        },
-        "model": "main.placeopeninghours",
-        "pk": "96b07b84-202c-4b89-8cc6-5d7db858fd1b"
-    },
-    {
-        "fields": {
-            "from_hour": "18:00:00",
-            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
-            "to_hour": "00:00:00",
-            "weekday": "Thursday"
-        },
-        "model": "main.placeopeninghours",
-        "pk": "7157b889-2d16-403d-aa1a-545d7de187da"
-    },
-    {
-        "fields": {
-            "from_hour": "18:00:00",
-            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
-            "to_hour": "00:00:00",
-            "weekday": "Friday"
-        },
-        "model": "main.placeopeninghours",
-        "pk": "8b00d51f-3447-48df-a0d7-06382463b4e7"
-    },
-    {
-        "fields": {
-            "from_hour": "18:00:00",
-            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
-            "to_hour": "00:00:00",
             "weekday": "Saturday"
         },
         "model": "main.placeopeninghours",
@@ -121,23 +97,63 @@
     },
     {
         "fields": {
-            "from_hour": "18:00:00",
-            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
-            "to_hour": "00:00:00",
-            "weekday": "Sunday"
+            "from_hour": "10:30:00",
+            "place": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3",
+            "to_hour": "18:30:00",
+            "weekday": "Tuesday"
         },
         "model": "main.placeopeninghours",
-        "pk": "854650ec-c6c0-4159-a0b2-baf10d4f559d"
+        "pk": "2260aa5d-4a49-4584-b487-b903d1da80bc"
     },
     {
         "fields": {
             "from_hour": "12:00:00",
             "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
             "to_hour": "23:30:00",
+            "weekday": "Friday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "3134a8d2-bfd4-49ea-9ca6-d0ef3460b941"
+    },
+    {
+        "fields": {
+            "from_hour": "12:00:00",
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Sunday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "36a663cd-b9a2-4c52-97ab-645f0cec87b3"
+    },
+    {
+        "fields": {
+            "from_hour": "10:30:00",
+            "place": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3",
+            "to_hour": "18:30:00",
             "weekday": "Monday"
         },
         "model": "main.placeopeninghours",
-        "pk": "b4a3ec4b-726c-4872-9a08-d1f38f9519d5"
+        "pk": "3aaa058b-7803-4e96-8cb1-6d7026d4098b"
+    },
+    {
+        "fields": {
+            "from_hour": "10:30:00",
+            "place": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3",
+            "to_hour": "18:30:00",
+            "weekday": "Wednesday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "47a22619-4af5-4b68-9244-3cb2b4abc000"
+    },
+    {
+        "fields": {
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Tuesday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "58711714-5f78-48b7-9c56-e338b76f1f53"
     },
     {
         "fields": {
@@ -161,23 +177,33 @@
     },
     {
         "fields": {
-            "from_hour": "12:00:00",
-            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
-            "to_hour": "23:30:00",
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
             "weekday": "Thursday"
         },
         "model": "main.placeopeninghours",
-        "pk": "94e0baad-cb52-44ec-acb1-6e23cc25f4b7"
+        "pk": "7157b889-2d16-403d-aa1a-545d7de187da"
     },
     {
         "fields": {
-            "from_hour": "12:00:00",
-            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
-            "to_hour": "23:30:00",
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Sunday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "854650ec-c6c0-4159-a0b2-baf10d4f559d"
+    },
+    {
+        "fields": {
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
             "weekday": "Friday"
         },
         "model": "main.placeopeninghours",
-        "pk": "3134a8d2-bfd4-49ea-9ca6-d0ef3460b941"
+        "pk": "8b00d51f-3447-48df-a0d7-06382463b4e7"
     },
     {
         "fields": {
@@ -194,10 +220,38 @@
             "from_hour": "12:00:00",
             "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
             "to_hour": "23:30:00",
-            "weekday": "Sunday"
+            "weekday": "Thursday"
         },
         "model": "main.placeopeninghours",
-        "pk": "36a663cd-b9a2-4c52-97ab-645f0cec87b3"
+        "pk": "94e0baad-cb52-44ec-acb1-6e23cc25f4b7"
+    },
+    {
+        "fields": {
+            "from_hour": "18:00:00",
+            "place": "b374b57c-5ff6-4554-a42a-0c05433a7b0c",
+            "to_hour": "00:00:00",
+            "weekday": "Wednesday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "96b07b84-202c-4b89-8cc6-5d7db858fd1b"
+    },
+    {
+        "fields": {
+            "from_hour": "12:00:00",
+            "place": "c2d6d3cf-a732-463f-a44b-299f5cb87ca9",
+            "to_hour": "23:30:00",
+            "weekday": "Monday"
+        },
+        "model": "main.placeopeninghours",
+        "pk": "b4a3ec4b-726c-4872-9a08-d1f38f9519d5"
+    },
+    {
+        "fields": {
+            "place": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3",
+            "usp": "Peaceful location"
+        },
+        "model": "main.placeusp",
+        "pk": "0dd786a2-9e9e-4be2-b09d-f6499e363ed3"
     },
     {
         "fields": {
@@ -214,6 +268,14 @@
         },
         "model": "main.placeusp",
         "pk": "7b84f4af-870c-4a3a-b4ea-c5f8c708df1e"
+    },
+    {
+        "fields": {
+            "place": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3",
+            "usp": "Specialty coffee"
+        },
+        "model": "main.placeusp",
+        "pk": "8efafdb6-eeb8-47fd-8239-5a93ec55c7b6"
     },
     {
         "fields": {
@@ -238,6 +300,14 @@
         },
         "model": "main.placevitalinfo",
         "pk": "25739bb5-aab3-473c-b57d-d1082685bcc7"
+    },
+    {
+        "fields": {
+            "place": "f46721c5-4ecf-4ce1-b76c-1db6f9de8ca3",
+            "vital_info": "Accessible"
+        },
+        "model": "main.placevitalinfo",
+        "pk": "a9d748cd-7b8a-4b47-8ccd-a67184ac5161"
     },
     {
         "fields": {
