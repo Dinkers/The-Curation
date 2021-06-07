@@ -76,10 +76,12 @@ def filters_list(request, city_id=None):
 
     if usps:
         serialized_usps = [PlaceUSPSerializer(usp).data for usp in usps]
-        filters_response_data['usps'].append(serialized_usps)
+        filters_response_data['usps'].extend(serialized_usps)
 
     if vital_infos:
         serialized_vital_infos = [PlaceVitalInfoSerializer(vital_info).data for vital_info in vital_infos]
-        filters_response_data['vital_infos'].append(serialized_vital_infos)
+        filters_response_data['vital_infos'].extend(serialized_vital_infos)
+
+    print(filters_response_data)
 
     return Response(filters_response_data)
