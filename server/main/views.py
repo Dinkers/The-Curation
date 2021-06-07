@@ -82,6 +82,4 @@ def filters_list(request, city_id=None):
         serialized_vital_infos = [PlaceVitalInfoSerializer(vital_info).data for vital_info in vital_infos]
         filters_response_data['vital_infos'].extend(serialized_vital_infos)
 
-    print(filters_response_data)
-
     return Response(filters_response_data)
