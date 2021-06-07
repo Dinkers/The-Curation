@@ -13,6 +13,7 @@ start:
 database:
 	@echo 'Migrating models'
 	@docker exec -it curation.server python manage.py migrate
+	@echo
 	@echo 'Seeding data'
 	@docker exec -it curation.server python manage.py loaddata main/migrations/seed/initial_data.json
 	@echo

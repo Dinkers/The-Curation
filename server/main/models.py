@@ -48,7 +48,7 @@ class Place(models.Model):
     # https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/
 
     def __str__(self):
-        return f'<Place: {self.name} (Type: {self.place_type})>'
+        return f'Place: {self.name} (Type: {self.place_type})'
 
 
 class PlaceOpeningHours(models.Model):
@@ -74,7 +74,7 @@ class PlaceOpeningHours(models.Model):
     place = models.ForeignKey(Place, related_name='opening_hours', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'<Place Opening Hours: {self.weekday} {self.from_hour}:{self.from_hour} (Place: {self.place.name})>'
+        return f'Place Opening Hours: {self.weekday} {self.from_hour}:{self.from_hour} (Place: {self.place.name})'
 
 
 class PlaceUSP(models.Model):
@@ -88,7 +88,7 @@ class PlaceUSP(models.Model):
     place = models.ForeignKey(Place, related_name='usps', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'<Place USP: {self.usp} (Place: {self.place.name})>'
+        return f'Place USP: {self.usp} (Place: {self.place.name})'
 
 
 class PlaceVitalInfo(models.Model):
@@ -102,7 +102,7 @@ class PlaceVitalInfo(models.Model):
     place = models.ForeignKey(Place, related_name='vital_infos', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'<Place VitalInfo: {self.vital_info} (Place: {self.place.name})>'
+        return f'Place VitalInfo: {self.vital_info} (Place: {self.place.name})'
 
 
 class PlaceImage(models.Model):
@@ -116,7 +116,7 @@ class PlaceImage(models.Model):
     place = models.ForeignKey(Place, related_name='images', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'<Place Image: {self.uri} (Place: {self.place.name})>'
+        return f'Place Image: {self.uri} (Place: {self.place.name})'
 
 
 class Submission(models.Model):
@@ -132,7 +132,7 @@ class Submission(models.Model):
     date_submitted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'<Submission: {self.submitter_name}>'
+        return f'Submission: {self.submitter_name}'
 
 
 # class Guestbook(models.model):

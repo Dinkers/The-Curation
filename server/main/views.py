@@ -61,7 +61,6 @@ def filters_list(request, city_id=None):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         places = city.places.all()
-
         if not places:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
