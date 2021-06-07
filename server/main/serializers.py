@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from main.models import City, Place, PlaceImage, Submission
+from main.models import City, Place, PlaceImage, Submission, PlaceUSP, PlaceVitalInfo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -73,3 +73,17 @@ class PlaceImageSerializer(serializers.ModelSerializer):
             'uri',
             'place'
         ]
+
+
+class PlaceUSPSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PlaceUSP
+        fields = '__all__'
+
+
+class PlaceVitalInfoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PlaceVitalInfo
+        fields = '__all__'

@@ -33,7 +33,9 @@ router.register(r'place-images', views.PlaceImageViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('filters/', views.filters_list),
+    path('filters/<uuid:city_id>', views.filters_list)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
