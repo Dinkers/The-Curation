@@ -62,7 +62,7 @@ def filters_list(request, city_id=None):
 
         places = city.places.all()
         if not places:
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
+            return Response([], status=status.HTTP_204_NO_CONTENT)
 
         usps = []
         vital_infos = []
