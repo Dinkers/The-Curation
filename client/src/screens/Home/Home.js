@@ -9,12 +9,7 @@ function Home () {
     <section className="section">
       <div className="container">
         <CitySelect />
-
-        <div className="block">
-          <h3 className="title is-4">Filters</h3>
-          <FilterSelect />
-        </div>
-
+        <FilterSelect />
         <LocationSelect />
       </div>
     </section>

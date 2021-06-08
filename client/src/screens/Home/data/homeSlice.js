@@ -32,7 +32,7 @@ export const homeSlice = createSlice({
     selectedCity: null,
 
     filters: filtersStub,
-    filtersRequest: 'completed',
+    filtersRequest: 'initial',
     selectedFilters: [],
 
     places: [],
@@ -83,6 +83,20 @@ export const homeSlice = createSlice({
 
     [requestGetPlaces.rejected]: (state) => {
       state.placesRequest = 'failed'
+    },
+
+    // Filters request
+    [requestGetFilters.pending]: (state) => {
+      state.filtersRequest = 'pending'
+    },
+
+    [requestGetFilters.fulfilled]: (state, action) => {
+      state.filters = action.payload
+      state.filtersRequest = 'completed'
+    },
+
+    [requestGetFilters.rejected]: (state) => {
+      state.filtersRequest = 'failed'
     }
   }
 })

@@ -36,13 +36,13 @@ function CitySelect () {
 
   useEffect(() => {
     if (selectedCity) {
+      dispatch(requestGetPlaces(selectedCity.id))
       setSelectedCityImage(cityImageMap[selectedCity.name])
     }
-  }, [selectedCity])
+  }, [dispatch, selectedCity])
   
   function handleCitySelection(id) {
     dispatch(setSelectedCity(id))
-    dispatch(requestGetPlaces(id))
     setIsSelecting(false)
   }
 
