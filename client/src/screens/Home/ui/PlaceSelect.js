@@ -22,16 +22,11 @@ function PlaceSelect () {
     }
 
     if (selectedFilters.length) {      
-      const filteredPlaces = []
-
-      places.forEach(place => {
+      const filteredPlaces = places.filter(place => {
         const properties = place.usps.concat(place.vital_infos)
 
-        const hasEveryFilter = selectedFilters.every((filter) => properties.includes(filter))
-
-        if (hasEveryFilter) filteredPlaces.push(place)
+        return selectedFilters.every((filter) => properties.includes(filter))
       })
-
       places = filteredPlaces
     }
 
