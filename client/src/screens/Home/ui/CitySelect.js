@@ -15,7 +15,8 @@ const initialState = {
 const cityImageMap = {
   'Seattle': 'https://source.unsplash.com/QEob0Fp4rdg',
   'Tokyo': 'https://source.unsplash.com/IocJwyqRv3M',
-  'New York' : 'https://source.unsplash.com/wpU4veNGnHg'
+  'New York' : 'https://source.unsplash.com/wpU4veNGnHg',
+  'London': 'https://source.unsplash.com/fk50kc-DzSg'
 }
 
 function CitySelect () {
