@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity, requestGetPlaces, requestGetCities } from 'screens/Home/data/homeSlice'
+import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus } from 'screens/Home/data/homeSlice'
 
 import Card from 'components/Card/Card'
 import Modal from 'components/Modal/Modal'
@@ -37,6 +37,7 @@ function CitySelect () {
   useEffect(() => {
     if (selectedCity) {
       dispatch(requestGetPlaces(selectedCity.id))
+      dispatch(resetRequestStatus('filtersRequest'))
       setSelectedCityImage(cityImageMap[selectedCity.name])
     }
   }, [dispatch, selectedCity])
