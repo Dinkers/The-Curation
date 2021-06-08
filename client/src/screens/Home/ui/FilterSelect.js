@@ -16,7 +16,7 @@ const filterImageMap = {
   'Vegan friendly': 'https://source.unsplash.com/2IxTgsgFi-s',
   'Accessible': 'https://source.unsplash.com/ju1yFZkrxVg',
   'Helal beer': 'https://source.unsplash.com/C8eSYwQkwHw'
-};
+}
 
 function FilterSelect () {
   const dispatch = useDispatch()
