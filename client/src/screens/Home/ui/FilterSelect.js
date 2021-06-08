@@ -34,7 +34,7 @@ function FilterSelect () {
     }
   })
 
-  function handleFilterSelection(filterName) {
+  const handleFilterSelection = (filterName) =>{
     dispatch(setSelectedFilter(filterName))
   }
 
