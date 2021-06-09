@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity, requestGetPlaces, requestGetCities } from 'screens/Home/data/homeSlice'
+import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus } from 'screens/Home/data/homeSlice'
 
 import Card from 'components/Card/Card'
 import Modal from 'components/Modal/Modal'
@@ -15,7 +15,8 @@ const initialState = {
 const cityImageMap = {
   'Seattle': 'https://source.unsplash.com/QEob0Fp4rdg',
   'Tokyo': 'https://source.unsplash.com/IocJwyqRv3M',
-  'New York' : 'https://source.unsplash.com/wpU4veNGnHg'
+  'New York' : 'https://source.unsplash.com/wpU4veNGnHg',
+  'London': 'https://source.unsplash.com/fk50kc-DzSg'
 }
 
 function CitySelect () {
@@ -32,17 +33,16 @@ function CitySelect () {
     if (citiesRequest === 'initial') {
       dispatch(requestGetCities())
     }
-  })
 
-  useEffect(() => {
     if (selectedCity) {
+      dispatch(requestGetPlaces(selectedCity.id))
+      dispatch(resetRequestStatus('filtersRequest'))
       setSelectedCityImage(cityImageMap[selectedCity.name])
     }
-  }, [selectedCity])
+  }, [dispatch, selectedCity, citiesRequest])
   
-  function handleCitySelection(id) {
+  const handleCitySelection = (id) =>{
     dispatch(setSelectedCity(id))
-    dispatch(requestGetPlaces(id))
     setIsSelecting(false)
   }
 

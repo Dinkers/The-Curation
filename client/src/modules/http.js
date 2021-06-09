@@ -4,7 +4,7 @@ const baseUrl = 'http://0.0.0.0:8000'
 const get = async (endpoint, args) => {
 
   const url = 
-    `${baseUrl}/${endpoint}/${args ? ('?' + args) : ''}`
+    `${baseUrl}/${endpoint}/${args ? (args) : ''}`
 
   return fetch(url)
     .then(response => response.json())

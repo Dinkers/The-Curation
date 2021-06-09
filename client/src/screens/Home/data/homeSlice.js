@@ -15,12 +15,12 @@ export const requestGetCities = createAsyncThunk(
 
 export const requestGetPlaces = createAsyncThunk(
   'home/reqGetPlaces',
-  async (cityId) => await http.get('places', `city=${cityId}`)
+  async (cityId) => await http.get('places', `?city=${cityId}`)
 )
 
 export const requestGetFilters = createAsyncThunk(
   'home/reqGetFilters',
-  async(cityId) => await http.get('filters', `city=${cityId}`)
+  async(cityId) => await http.get('filters', `${cityId}`)
 )
 
 export const homeSlice = createSlice({
@@ -32,7 +32,7 @@ export const homeSlice = createSlice({
     selectedCity: null,
 
     filters: filtersStub,
-    filtersRequest: 'completed',
+    filtersRequest: 'initial',
     selectedFilters: [],
 
     places: [],
@@ -40,6 +40,10 @@ export const homeSlice = createSlice({
   },
 
   reducers: {
+    resetRequestStatus: (state, action) => {
+      state[action.payload] = 'initial'
+    },
+
     setSelectedCity: (state, action) => {
       const selectedCity = state.cities.find((city => city.id === action.payload))
       state.selectedCity = selectedCity 
@@ -83,10 +87,24 @@ export const homeSlice = createSlice({
 
     [requestGetPlaces.rejected]: (state) => {
       state.placesRequest = 'failed'
+    },
+
+    // Filters request
+    [requestGetFilters.pending]: (state) => {
+      state.filtersRequest = 'pending'
+    },
+
+    [requestGetFilters.fulfilled]: (state, action) => {
+      state.filters = action.payload
+      state.filtersRequest = 'completed'
+    },
+
+    [requestGetFilters.rejected]: (state) => {
+      state.filtersRequest = 'failed'
     }
   }
 })
 
-export const { setSelectedCity, setSelectedFilter, getCities } = homeSlice.actions
+export const { setSelectedCity, setSelectedFilter, resetRequestStatus } = homeSlice.actions
 
 export default homeSlice.reducer

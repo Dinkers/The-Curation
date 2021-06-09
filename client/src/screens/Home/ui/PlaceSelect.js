@@ -5,30 +5,39 @@ import Notification from 'components/Notification/Notification'
 import Card from 'components/Card/Card'
 
 function PlaceSelect () {
-  const places = useSelector((state) => state.home.places)
+  let places = useSelector((state) => state.home.places)
   const placesRequest = useSelector((state) => state.home.placesRequest)
+  const selectedFilters = useSelector((state) => state.home.selectedFilters)
 
   const testImage = 'https://source.unsplash.com/GXXYkSwndP4/1600x900'
 
   const generatePlacesChoiceContent = () => {
-    let content = 
-      <Notification 
-        message="No places match your criteria"
-        color="is-info"
-      />
-
-    if (places.length) {
-      content = places.map((place) => (
-        <Card
-          cardType="image"
-          image={ testImage }
-          imageRatio="is-2by1"
-          title={ place.name }
+    if (!places.length) {
+      return (
+        <Notification 
+          message="No places match your criteria"
+          color="is-info"
         />
-      ))
+      )
     }
 
-    return content
+    if (selectedFilters.length) {      
+      const filteredPlaces = places.filter(place => {
+        const properties = place.usps.concat(place.vital_infos)
+
+        return selectedFilters.every((filter) => properties.includes(filter))
+      })
+      places = filteredPlaces
+    }
+
+    return places.map((place) => (
+      <Card
+        cardType="image"
+        image={ testImage }
+        imageRatio="is-2by1"
+        title={ place.name }
+      />
+    ))
   }
 
   return (
