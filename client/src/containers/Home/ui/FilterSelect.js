@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { requestGetFilters, setSelectedFilter } from 'screens/Home/data/homeSlice'
-import { getFiltersData, getCitiesData } from 'screens/Home/data/homeSelectors'
+import { requestGetFilters, setSelectedFilter } from 'containers/Home/data/homeSlice'
+import { getFiltersData, getCitiesData } from 'containers/Home/data/homeSelectors'
 
 import Card from 'components/Card/Card'
 import Notification from 'components/Notification/Notification'

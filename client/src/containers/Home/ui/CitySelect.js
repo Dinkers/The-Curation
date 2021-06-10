@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus } from 'screens/Home/data/homeSlice'
-import { getCitiesData } from 'screens/Home/data/homeSelectors'
+import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus, resetFilters } 
+  from 'containers/Home/data/homeSlice'
+import { getCitiesData } from 'containers/Home/data/homeSelectors'
 
 import Card from 'components/Card/Card'
 import Modal from 'components/Modal/Modal'
@@ -29,6 +30,7 @@ function CitySelect () {
     if (citiesData.selectedCity) {
       dispatch(requestGetPlaces(citiesData.selectedCity.id))
       dispatch(resetRequestStatus('filtersRequest'))
+      dispatch(resetFilters())
       setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
     }
   }, [dispatch, citiesData.selectedCity, citiesData.citiesImages, citiesData.citiesRequest])
