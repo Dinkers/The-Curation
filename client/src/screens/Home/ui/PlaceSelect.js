@@ -1,17 +1,18 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+import { getPlacesData, getSelectedFilters } from 'screens/Home/data/homeSelectors'
+
 import Notification from 'components/Notification/Notification'
 import Card from 'components/Card/Card'
 
 function PlaceSelect () {
-  let places = useSelector((state) => state.home.places)
-  const placesRequest = useSelector((state) => state.home.placesRequest)
-  const selectedFilters = useSelector((state) => state.home.selectedFilters)
+  const placesData = useSelector(getPlacesData)
+  const selectedFilters = useSelector(getSelectedFilters)
 
   const testImage = 'https://source.unsplash.com/GXXYkSwndP4/1600x900'
 
-  const generatePlacesChoiceContent = () => {
+  const generatePlacesChoiceContent = (places) => {
     if (!places.length) {
       return (
         <Notification 
@@ -32,6 +33,7 @@ function PlaceSelect () {
 
     return places.map((place) => (
       <Card
+        key={`place-select-card-${ place.name }`}
         cardType="image"
         image={ testImage }
         imageRatio="is-2by1"
@@ -43,9 +45,9 @@ function PlaceSelect () {
   return (
     <div className="block">
       <h3 className="title is-4">Places</h3>
-      { placesRequest === 'completed'
+      { placesData.placesRequest === 'completed'
         ? (
-            generatePlacesChoiceContent() 
+            generatePlacesChoiceContent(placesData.places) 
         )
         : (
             <Notification 

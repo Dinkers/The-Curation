@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus } from 'screens/Home/data/homeSlice'
+import { getCitiesData } from 'screens/Home/data/homeSelectors'
 
 import Card from 'components/Card/Card'
 import Modal from 'components/Modal/Modal'
@@ -12,46 +13,37 @@ const initialState = {
   selectedCityImage: null
 }
 
-const cityImageMap = {
-  'Seattle': 'https://source.unsplash.com/QEob0Fp4rdg',
-  'Tokyo': 'https://source.unsplash.com/IocJwyqRv3M',
-  'New York' : 'https://source.unsplash.com/wpU4veNGnHg',
-  'London': 'https://source.unsplash.com/fk50kc-DzSg'
-}
-
 function CitySelect () {
   const dispatch = useDispatch()
 
-  const cities = useSelector((state) => state.home.cities)
-  const citiesRequest = useSelector((state) => state.home.citiesRequest)
-  const selectedCity = useSelector((state) => state.home.selectedCity)
-  
+  const citiesData = useSelector(getCitiesData)
+
   const [isSelecting, setIsSelecting] = useState(initialState.isSelecting)
   const [selectedCityImage, setSelectedCityImage] = useState(initialState.selectedCityImage)
 
   useEffect(() => {
-    if (citiesRequest === 'initial') {
+    if (citiesData.citiesRequest === 'initial') {
       dispatch(requestGetCities())
     }
 
-    if (selectedCity) {
-      dispatch(requestGetPlaces(selectedCity.id))
+    if (citiesData.selectedCity) {
+      dispatch(requestGetPlaces(citiesData.selectedCity.id))
       dispatch(resetRequestStatus('filtersRequest'))
-      setSelectedCityImage(cityImageMap[selectedCity.name])
+      setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
     }
-  }, [dispatch, selectedCity, citiesRequest])
+  }, [dispatch, citiesData.selectedCity, citiesData.citiesImages, citiesData.citiesRequest])
   
   const handleCitySelection = (id) =>{
     dispatch(setSelectedCity(id))
     setIsSelecting(false)
   }
 
-  const generateCityChoiceModalContent = () => cities.map((city) => (
+  const generateCityChoiceModalContent = () => citiesData.cities.map((city) => (
     <div className="block" key={`city-select-block-${city.id}`}>
       <Card
         cardType="image"
         clickHandler={ () => handleCitySelection(city.id) }
-        image={ cityImageMap[city.name] }
+        image={ citiesData.citiesImages[city.name] }
         imageRatio="is-2by1"
         title={ city.name }
       />
@@ -60,7 +52,7 @@ function CitySelect () {
 
   return (
     <>
-      { citiesRequest === 'completed'
+      { citiesData.citiesRequest === 'completed'
         ? (
           <div className="block">
             <h3 className="title is-4">Find places in</h3>
@@ -69,7 +61,7 @@ function CitySelect () {
               imageRatio="is-16by9"
               image={ selectedCityImage }
               clickHandler={ () => setIsSelecting(true) }
-              title={ selectedCity.name }
+              title={ citiesData.selectedCity.name }
             />
       
             <Modal 

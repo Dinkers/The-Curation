@@ -2,11 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import http from 'modules/http'
 
-const filtersStub = [
-  'Vegan',
-  'Locally sourced',
-  'Farm'
-]
+import { cityImageMap, filterImageMap } from 'screens/Home/data/homeImageMaps'
 
 export const requestGetCities = createAsyncThunk(
   'home/reqGetCities',
@@ -28,10 +24,12 @@ export const homeSlice = createSlice({
 
   initialState: {
     cities: [],
+    citiesImages: cityImageMap,
     citiesRequest: 'initial',
     selectedCity: null,
 
-    filters: filtersStub,
+    filters: [],
+    filtersImages: filterImageMap,
     filtersRequest: 'initial',
     selectedFilters: [],
 
