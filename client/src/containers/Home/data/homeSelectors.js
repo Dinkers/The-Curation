@@ -1,9 +1,5 @@
 import { createSelector } from 'reselect'
 
-// Derived app data
-export const getShouldShowHomeScreen = (state) => state.home.shouldShowHomeScreen
-export const getSelectedPlaceId = (state) => state.home.selectedPlaceId
-
 // Derived Cities data
 export const getCities = (state) => state.home.cities
 export const getCitiesImages = (state) => state.home.citiesImages

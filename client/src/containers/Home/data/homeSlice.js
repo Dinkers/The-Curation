@@ -58,10 +58,6 @@ export const homeSlice = createSlice({
         state.selectedFilters = 
           state.selectedFilters.filter((filter) => filter !== action.payload)
       }
-    },
-
-    setSelectedPlaceId: (state, action) => {
-      state.selectedPlaceId = action.payload
     }
   },
 
