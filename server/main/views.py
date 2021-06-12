@@ -55,6 +55,7 @@ class PlaceVitalInfoViewSet(viewsets.ModelViewSet):
 class PlaceOpeningHoursViewSet(viewsets.ModelViewSet):
     queryset = PlaceOpeningHours.objects.all()
     serializer_class = PlaceOpeningHoursSerializer
+    filterset_fields = ('place', )
 
 
 @api_view(['GET'])
