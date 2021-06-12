@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import permissions, viewsets, status
 
-from main.models import City, Place, Submission, PlaceImage, PlaceUSP, PlaceVitalInfo
+from main.models import City, Place, Submission, PlaceImage, PlaceUSP, PlaceVitalInfo, PlaceUSP
 from main.serializers import PlaceSerializer, SubmissionSerializer, CitySerializer, UserSerializer, \
     PlaceImageSerializer, PlaceUSPSerializer, PlaceVitalInfoSerializer
 
@@ -40,6 +40,11 @@ class PlaceImageViewSet(viewsets.ModelViewSet):
     queryset = PlaceImage.objects.all().order_by('-place')
     serializer_class = PlaceImageSerializer
     # permission_classes = [permissions.IsAuthenticated]
+
+
+class PlaceUSPViewSet(viewsets.ModelViewSet):
+    queryset = PlaceUSP.objects.all()
+    serializer_class = PlaceUSPSerializer
 
 
 @api_view(['GET'])
