@@ -28,6 +28,9 @@ router.register(r'places', views.PlaceViewSet)
 router.register(r'submissions', views.SubmissionViewSet)
 router.register(r'cities', views.CityViewSet)
 router.register(r'place-images', views.PlaceImageViewSet)
+router.register(r'place-usps', views.PlaceUSPViewSet)
+router.register(r'place-vital-infos', views.PlaceVitalInfoViewSet)
+router.register(r'place-opening-hours', views.PlaceOpeningHoursViewSet)
 
 
 urlpatterns = [
