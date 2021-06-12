@@ -1,8 +1,8 @@
 import React from 'react'
 
-import CitySelect from 'screens/Home/ui/CitySelect'
-import FilterSelect from 'screens/Home/ui/FilterSelect'
-import LocationSelect from 'screens/Home/ui/PlaceSelect'
+import CitySelect from 'containers/Home/ui/CitySelect'
+import FilterSelect from 'containers/Home/ui/FilterSelect'
+import LocationSelect from 'containers/Home/ui/PlaceSelect'
 
 function Home () {
   return (
