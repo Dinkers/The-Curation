@@ -1,10 +1,10 @@
 // TODO: make this configurable as an env var or similar
 const baseUrl = 'http://0.0.0.0:8000'
 
-const get = async (endpoint, args) => {
+const get = async (endpoint, args, appendSlash) => {
 
   const url = 
-    `${baseUrl}/${endpoint}/${args ? (args) : ''}`
+    `${baseUrl}/${endpoint}/${args ? (args) : ''}${appendSlash? '/' : ''}`
 
   return fetch(url)
     .then(response => response.json())
