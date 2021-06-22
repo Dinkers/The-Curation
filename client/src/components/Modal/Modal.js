@@ -6,7 +6,7 @@ const Modal = (props) => {
 
       <div className={`modal-background ${styles.modalBackground} ${styles.isOverride}`}></div>
 
-      <div className="modal-content">
+      <div className={`modal-content ${styles.modalContent} ${styles.isOverride}`}>
         <section className="section">
           <div className="container">
             { props.content }
