@@ -1,4 +1,4 @@
-function Notification (props) {
+const Notification = (props) => {
   const color = props.color || 'is-warning'
 
   return (

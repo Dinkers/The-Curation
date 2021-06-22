@@ -5,6 +5,7 @@ import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus
   from 'containers/Home/data/homeSlice'
 import { getCitiesData } from 'containers/Home/data/homeSelectors'
 
+import Button from 'components/Button/Button'
 import Card from 'components/Card/Card'
 import Modal from 'components/Modal/Modal'
 import Notification from 'components/Notification/Notification'
@@ -57,14 +58,21 @@ function CitySelect () {
       { citiesData.citiesRequest === 'completed'
         ? (
           <div className="block">
-            <h3 className="title is-4">Find places in</h3>
-            <Card
-              cardType="image"
-              imageRatio="is-16by9"
-              image={ selectedCityImage }
-              clickHandler={ () => setIsSelecting(true) }
-              title={ citiesData.selectedCity.name }
-            />
+            <div className="level is-mobile">
+              <div className="level-left">
+                <div className="level-item">
+                  <h3 className="title is-4">Find places in </h3>
+                </div>
+
+                <div className="level-item">
+                  <Button
+                    clickHandler={() => setIsSelecting(true)}
+                    icon='fa-angle-down'
+                    text={citiesData.selectedCity.name}
+                  />
+                </div>
+              </div>
+            </div>
       
             <Modal 
               isActive={ isSelecting }
