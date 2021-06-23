@@ -4,7 +4,7 @@ export const cardTypes = {
   image: 'image'
 }
 
-function Card (props) {
+const Card = (props) => {
   
   function handleClick () {
     if (props.clickHandler) props.clickHandler()
