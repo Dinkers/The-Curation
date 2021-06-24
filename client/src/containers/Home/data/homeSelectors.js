@@ -50,3 +50,7 @@ export const getPlacesData = createSelector(
     placesRequest
   })
 )
+
+// Derived Place Type data
+export const getPlaceTypeImages = (state) => state.home.placeTypeImageMap
+export const getSelectedPlaceType = (state) => state.home.selectedPlaceType

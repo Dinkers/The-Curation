@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import http from 'modules/http'
 
-import { cityImageMap, filterImageMap } from 'containers/Home/data/homeImageMaps'
+import { cityImageMap, filterImageMap, placeTypeImageMap } from 'containers/Home/data/homeImageMaps'
 
 export const requestGetCities = createAsyncThunk(
   'home/reqGetCities',
@@ -35,6 +35,9 @@ export const homeSlice = createSlice({
 
     places: [],
     placesRequest: 'initial',
+
+    placeTypeImageMap: placeTypeImageMap,
+    selectedPlaceType: 'Any'
   },
 
   reducers: {
@@ -58,6 +61,10 @@ export const homeSlice = createSlice({
         state.selectedFilters = 
           state.selectedFilters.filter((filter) => filter !== action.payload)
       }
+    },
+    
+    setSelectedPlaceType: (state, action) => {
+      state.selectedPlaceType = action.payload
     }
   },
 
@@ -111,7 +118,8 @@ export const {
   resetFilters,
   resetRequestStatus,
   setSelectedCity,
-  setSelectedFilter
+  setSelectedFilter,
+  setSelectedPlaceType
 } = homeSlice.actions
 
 export default homeSlice.reducer
