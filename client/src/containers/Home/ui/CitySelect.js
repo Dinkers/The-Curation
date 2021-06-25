@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus, resetFilters } 
+import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus, resetFilters, setSelectedPlaceType } 
   from 'containers/Home/data/homeSlice'
 import { getCitiesData } from 'containers/Home/data/homeSelectors'
 
@@ -39,6 +39,7 @@ function CitySelect () {
   const handleCitySelection = (id) =>{
     dispatch(resetRequestStatus('filtersRequest'))
     dispatch(resetFilters())
+    dispatch(setSelectedPlaceType('Any'))
     dispatch(setSelectedCity(id))
     setIsSelecting(false)
   }
