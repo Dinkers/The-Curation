@@ -32,13 +32,13 @@ function CitySelect () {
   useEffect(() => {
     if (citiesData.selectedCity) {
       dispatch(requestGetPlaces(citiesData.selectedCity.id))
-      dispatch(resetRequestStatus('filtersRequest'))
-      dispatch(resetFilters())
       setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
     }
   }, [dispatch, citiesData])
   
   const handleCitySelection = (id) =>{
+    dispatch(resetRequestStatus('filtersRequest'))
+    dispatch(resetFilters())
     dispatch(setSelectedCity(id))
     setIsSelecting(false)
   }
