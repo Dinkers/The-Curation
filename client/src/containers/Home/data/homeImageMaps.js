@@ -16,3 +16,10 @@ export const cityImageMap = {
   'New York' : 'https://source.unsplash.com/wpU4veNGnHg',
   'London': 'https://source.unsplash.com/fk50kc-DzSg'
 }
+
+export const placeTypeImageMap = {
+  'Any': 'https://source.unsplash.com/Ly1DHTvjSvs',
+  'Restaurant': 'https://source.unsplash.com/Ciqxn7FE4vE',
+  'Bar': 'https://source.unsplash.com/6UIonphZA5o',
+  'Cafe': 'https://source.unsplash.com/tKN1WXrzQ3s'
+}

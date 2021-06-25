@@ -27,14 +27,16 @@ function CitySelect () {
     if (citiesData.citiesRequest === 'initial') {
       dispatch(requestGetCities())
     }
+  }, [dispatch, citiesData.citiesRequest])
 
+  useEffect(() => {
     if (citiesData.selectedCity) {
       dispatch(requestGetPlaces(citiesData.selectedCity.id))
       dispatch(resetRequestStatus('filtersRequest'))
       dispatch(resetFilters())
       setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
     }
-  }, [dispatch, citiesData.selectedCity, citiesData.citiesImages, citiesData.citiesRequest])
+  }, [dispatch, citiesData])
   
   const handleCitySelection = (id) =>{
     dispatch(setSelectedCity(id))
