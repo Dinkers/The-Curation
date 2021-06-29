@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { requestGetFilters, setSelectedFilter } from 'containers/Home/data/homeSlice'
 import { getFiltersData, getCitiesData } from 'containers/Home/data/homeSelectors'
 
-import Card from 'components/Card/Card'
+import Tag from 'components/Tag/Tag'
 import Notification from 'components/Notification/Notification'
 
 function FilterSelect () {
@@ -43,14 +43,13 @@ function FilterSelect () {
 
           return (
             <div className="column" key={`filter-select-block-${filter.id}`}>
-              <Card
-                cardType='image'
-                imageRatio='is-128x128'
-                image={ filtersData.filtersImages[filter.usp || filter.vital_info] }
-                title={ filter.usp || filter.vital_info }
-                isSelected={ isSelected }
-                clickHandler={() => handleFilterSelection(filter.id)}
-              />
+              <div class="tags">
+                <Tag
+                  clickHandler={ () => handleFilterSelection(filter.id) }
+                  isSelected={ isSelected }
+                  text={ filter.usp || filter.vital_info }
+                />
+              </div>
             </div>
           )
         }))
