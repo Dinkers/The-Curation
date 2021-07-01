@@ -9,6 +9,7 @@ import { getPlaceData } from 'containers/Place/data/placeSelectors'
 import Notification from 'components/Notification/Notification'
 
 import Intro from 'containers/Place/ui/Intro'
+import Slider from 'components/Slider/Slider'
 
 const Place = () => {
   const dispatch = useDispatch()
@@ -46,26 +47,36 @@ const Place = () => {
             clickHandler={ () => scrollToContentStart() }
           />
 
-          <div ref={contentStartRef}>
-            {/* <button className="button" onClick={ () => handleHomeClick() }>
-              Home
-            </button> */}
+          <section className="section" ref={contentStartRef}>
+            <div className="container">
+              {/* 
+                <button className="button" onClick={ () => handleHomeClick() }>
+                  Home
+                </button> 
+              */}
 
-            <h1 className="title">{ placeData.place.name }</h1>
-            <h2 className="subtitle">Open Now</h2>
+              <div className="block">
+                <h1 className="title">{ placeData.place.name }</h1>
+                <h2 className="subtitle">Open Now</h2>
+              </div>
 
-            <p>Name: { placeData.place.name }</p>
-            <p>Type: { placeData.place.place_type }</p>
-            <p>Website: { placeData.place.website }</p>
-            <p>Address: {placeData.place.address }</p>
-            <p>Email: { placeData.place.email_address }</p>
-            <p>Copy: { placeData.place.copy }</p>
-          </div>
+              <div className="block">
+                <Slider />
+              </div>
+
+              <div className="block">
+                <p>Name: { placeData.place.name }</p>
+                <p>Type: { placeData.place.place_type }</p>
+                <p>Website: { placeData.place.website }</p>
+                <p>Address: {placeData.place.address }</p>
+                <p>Email: { placeData.place.email_address }</p>
+                <p>Copy: { placeData.place.copy }</p>
+              </div>
+            </div>
+          </section>
         </div>
       ): (
-        <Notification 
-          message="Loading place data"
-        />
+        <Notification message="Loading place data" /> 
       )}
     </>
   )

@@ -3,7 +3,7 @@ const Notification = (props) => {
 
   return (
     <div className={`notification ${color}`}>
-      { props.showClose ? (<button class="delete"></button>) : null }
+      { props.showClose ? (<button className="delete"></button>) : null }
       { props.message }
     </div>
   )
