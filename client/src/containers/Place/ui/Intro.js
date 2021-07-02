@@ -23,7 +23,7 @@ const Intro = (props) => {
               style={{'fontSize': '1.5rem'}}
               aria-hidden="true"
               onClick={() => props.clickHandler()}
-            >  
+            >
             </i>
           </div>
         </div>
