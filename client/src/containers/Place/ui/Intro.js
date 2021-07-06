@@ -1,11 +1,12 @@
+import styles from 'containers/Place/ui/Intro.module.scss'
+
 const Intro = (props) => {
   return (
     <section 
-      className="hero is-danger is-fullheight" 
+      className={`hero is-primary is-fullheight ${styles['intro__background-image']}`}
       style={
         {
-          background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3), 25%, rgba(10, 10, 10, 0.9)), url(https://source.unsplash.com/GXXYkSwndP4/1600x900) no-repeat center top',
-          backgroundSize: 'cover'
+          backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.3), 25%, rgba(10, 10, 10, 0.9)), url(${props.backgroundImageUrl})`,
         }
       }
     >

@@ -14,17 +14,18 @@ const weekMap = [
 export const getPlace = (state) => state.place.place
 export const getPlaceId = (state) => state.place.placeId
 export const getPlaceRequest = (state) => state.place.placeRequest
+export const getPlaceImagesRequest = (state) => state.place.placeImagesRequest
 
 export const getPlaceData = createSelector(
   getPlace,
   getPlaceId,
   getPlaceRequest,
-  (place, placeId, placeRequest, getPlaceVitalInfos, vitalInfoRequest) => ({
+  getPlaceImagesRequest,
+  (place, placeId, placeRequest, placeImagesRequest) => ({
     place,
     placeId,
     placeRequest,
-    getPlaceVitalInfos,
-    vitalInfoRequest
+    placeImagesRequest
   })
 )
 
@@ -88,3 +89,6 @@ export const getOpeningHoursData = createSelector(
     openingHoursRequest
   })
 )
+
+// Place images data
+export const getPlaceImagesUris = (state) => state.place.placeImages.map((placeImage) => placeImage.uri)

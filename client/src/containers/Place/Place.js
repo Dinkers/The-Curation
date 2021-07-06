@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { setCurrentScreen, setSelectedPlaceId } from 'containers/App/data/appSlice'
 import { getAppData } from 'containers/App/data/appSelectors'
-import { requestGetPlace, resetPlaceData, requestAllVitalInfos, requestAllUsps, requestAllOpeningHours } from 'containers/Place/data/placeSlice'
-import { getPlaceData, getVitalInfoData, getUspsData, getOpeningHoursData } from 'containers/Place/data/placeSelectors'
+import { requestGetPlace, resetPlaceData, requestAllVitalInfos, requestAllUsps, requestAllOpeningHours, requestAllPlaceImages } from 'containers/Place/data/placeSlice'
+import { getPlaceData, getVitalInfoData, getUspsData, getOpeningHoursData, getPlaceImagesUris } from 'containers/Place/data/placeSelectors'
 
 import Notification from 'components/Notification/Notification'
 
@@ -19,6 +19,7 @@ const Place = () => {
   const vitalInfoData = useSelector(getVitalInfoData)
   const uspsData = useSelector(getUspsData)
   const openingHoursData = useSelector(getOpeningHoursData)
+  const placeImageUris = useSelector(getPlaceImagesUris)
 
   const contentStartRef = useRef(null)
 
@@ -38,7 +39,7 @@ const Place = () => {
       dispatch(requestAllVitalInfos(placeData.place['vital_infos']))
       dispatch(requestAllUsps(placeData.place['usps']))
       dispatch(requestAllOpeningHours(placeData.place['opening_hours']))
-      // TODO: dispatch image request here
+      dispatch(requestAllPlaceImages(placeData.place.images))
     }
   }, [placeData, vitalInfoData, dispatch])
 
@@ -54,13 +55,14 @@ const Place = () => {
 
   return (
     <>
-      { placeData.placeRequest === 'completed'
+      { placeData.placeRequest === 'completed' && placeData.placeImagesRequest === 'completed'
       ? (
         <div>
           <Intro
             name={ placeData.place.name }
             copy={ placeData.place.copy }
             clickHandler={ () => scrollToContentStart() }
+            backgroundImageUrl={ placeImageUris[0] }
           />
 
           <section className="section" ref={contentStartRef}>
@@ -76,7 +78,9 @@ const Place = () => {
               </div>
 
               <div className="block">
-                <Slider />
+                <Slider
+                  images={ placeImageUris }
+                />
               </div>
 
               <div className="block">
