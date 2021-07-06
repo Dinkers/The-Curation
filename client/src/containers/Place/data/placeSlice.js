@@ -6,6 +6,8 @@ const initialState = {
   place: null,
   placeRequest: 'initial',
   placeImages: [],
+  openingHours: [],
+  openingHoursRequest: 'initial',
   vitalInfos: [],
   vitalInfoRequest: 'initial',
   usps: [],
@@ -17,17 +19,24 @@ export const requestGetPlace = createAsyncThunk(
   async (placeId) => await http.get('places', placeId, true)
 )
 
-export const getAllUsps = createAsyncThunk(
-  'place/getAllUsps',
+export const requestAllUsps = createAsyncThunk(
+  'place/reqAllUsps',
   async (usps) => await Promise.all(
     usps.map((usp) => http.get('place-usps', usp, true))
   )
 )
 
-export const getAllVitalInfos = createAsyncThunk(
-  'place/getAllVitalInfos',
-  async (vital_infos) => await Promise.all(
-    vital_infos.map((vital_info) => http.get('place-vital-infos', vital_info, true))
+export const requestAllVitalInfos = createAsyncThunk(
+  'place/reqAllVitalInfos',
+  async (vitalInfos) => await Promise.all(
+    vitalInfos.map((vitalInfo) => http.get('place-vital-infos', vitalInfo, true))
+  )
+)
+
+export const requestAllOpeningHours = createAsyncThunk(
+  'place/reqAllOpeningHours',
+  async (openingHours) => await Promise.all(
+    openingHours.map((openingHour) => http.get('place-opening-hours', openingHour, true))
   )
 )
 
@@ -56,24 +65,30 @@ export const placeSlice = createSlice({
     },
 
     //Vital Info requests
-    [getAllVitalInfos.fulfilled]: (state, action) => {
+    [requestAllVitalInfos.fulfilled]: (state, action) => {
       state.vitalInfoRequest = 'completed'
       state.vitalInfos = action.payload
     },
 
-    [getAllVitalInfos.rejected]: (state) => {
+    [requestAllVitalInfos.rejected]: (state) => {
       state.vitalInfoRequest = 'failed'
     },
 
-    // USPS requests
-    [getAllUsps.fulfilled]: (state, action) => {
+    // USPs requests
+    [requestAllUsps.fulfilled]: (state, action) => {
       state.uspsRequest = 'completed'
       state.usps = action.payload
     },
 
-    [getAllUsps.rejected]: (state) => {
+    [requestAllUsps.rejected]: (state) => {
       state.uspsRequest = 'failed'
     },
+
+    // Opening hours requests
+    [requestAllOpeningHours.fulfilled]: (state, action) => {
+      state.openingHoursRequest = 'completed'
+      state.openingHours = action.payload
+    }
   }
 })
 
