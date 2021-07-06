@@ -6,6 +6,7 @@ const initialState = {
   place: null,
   placeRequest: 'initial',
   placeImages: [],
+  placeImagesRequest: 'initial',
   openingHours: [],
   openingHoursRequest: 'initial',
   vitalInfos: [],
@@ -37,6 +38,13 @@ export const requestAllOpeningHours = createAsyncThunk(
   'place/reqAllOpeningHours',
   async (openingHours) => await Promise.all(
     openingHours.map((openingHour) => http.get('place-opening-hours', openingHour, true))
+  )
+)
+
+export const requestAllPlaceImages = createAsyncThunk(
+  'place/reqAllPlaceImages',
+  async (images) => await Promise.all(
+    images.map((image) => http.get('place-images', image, true))
   )
 )
 
@@ -88,6 +96,12 @@ export const placeSlice = createSlice({
     [requestAllOpeningHours.fulfilled]: (state, action) => {
       state.openingHoursRequest = 'completed'
       state.openingHours = action.payload
+    },
+
+    // Place images requests
+    [requestAllPlaceImages.fulfilled]: (state, action) => {
+      state.placeImagesRequest = 'completed'
+      state.placeImages = action.payload
     }
   }
 })
