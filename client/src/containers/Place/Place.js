@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { setCurrentScreen, setSelectedPlaceId } from 'containers/App/data/appSlice'
 import { getAppData } from 'containers/App/data/appSelectors'
-import { requestGetPlace, resetPlaceData, getAllVitalInfos, getAllUsps } from 'containers/Place/data/placeSlice'
-import { getPlaceData, getVitalInfoData, getUspsData } from 'containers/Place/data/placeSelectors'
+import { requestGetPlace, resetPlaceData, requestAllVitalInfos, requestAllUsps, requestAllOpeningHours } from 'containers/Place/data/placeSlice'
+import { getPlaceData, getVitalInfoData, getUspsData, getOpeningHoursData } from 'containers/Place/data/placeSelectors'
 
 import Notification from 'components/Notification/Notification'
 
@@ -18,6 +18,7 @@ const Place = () => {
   const placeData = useSelector(getPlaceData)
   const vitalInfoData = useSelector(getVitalInfoData)
   const uspsData = useSelector(getUspsData)
+  const openingHoursData = useSelector(getOpeningHoursData)
 
   const contentStartRef = useRef(null)
 
@@ -34,8 +35,9 @@ const Place = () => {
       placeData.placeRequest === 'completed' 
       && vitalInfoData.vitalInfoRequest === 'initial'
     ) {
-      dispatch(getAllVitalInfos(placeData.place['vital_infos']))
-      dispatch(getAllUsps(placeData.place['usps']))
+      dispatch(requestAllVitalInfos(placeData.place['vital_infos']))
+      dispatch(requestAllUsps(placeData.place['usps']))
+      dispatch(requestAllOpeningHours(placeData.place['opening_hours']))
       // TODO: dispatch image request here
     }
   }, [placeData, vitalInfoData, dispatch])
@@ -64,9 +66,9 @@ const Place = () => {
           <section className="section" ref={contentStartRef}>
             <div className="container">
               
-              {/* <button className="button" onClick={ () => handleHomeClick() }>
+              <button className="button" onClick={ () => handleHomeClick() }>
                 Home
-              </button>  */}
+              </button> 
              
               <div className="block">
                 <h1 className="title">{ placeData.place.name }</h1>
@@ -108,12 +110,32 @@ const Place = () => {
               </div>
 
               <div className="block">
-              <div className="content">
+                <div className="content">
                   <p>Find: {placeData.place.address }</p>
                   <p>Write: { placeData.place.email_address }</p>
-                  <p>Website: { placeData.place.website }</p>
+                  {/* <p>Website: { placeData.place.website }</p> */}
                 </div>
               </div>
+
+              <div className="block">
+                <h2 className="subtitle">Opening times</h2>
+                  <div className="content">
+                    {
+                      openingHoursData.openingHoursRequest === 'completed'
+                      ? (
+                        openingHoursData.sortedOpeningHours.map((openingHour) => {
+                          return (
+                            openingHour['closed'] 
+                            ? <p>{ openingHour.weekday }: Closed</p>
+                            : <p>{ openingHour.weekday } : { openingHour['from_hour'] } - { openingHour['to_hour'] }</p>
+                          )
+                        })
+                      )
+                      : ( <p>Loading</p> )
+                    }
+                  </div>
+              </div>
+
             </div>
           </section>
         </div>

@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 
 import SliderArrow from 'components/Slider/SliderArrow';
 
-const SimpleSlider = () => {
+const ImageSlider = () => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -28,4 +28,4 @@ const SimpleSlider = () => {
   );
 }
 
-export default SimpleSlider
+export default ImageSlider
