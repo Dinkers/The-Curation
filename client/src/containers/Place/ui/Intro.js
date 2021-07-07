@@ -3,7 +3,7 @@ import styles from 'containers/Place/ui/Intro.module.scss'
 const Intro = (props) => {
   return (
     <section 
-      className={`hero is-primary is-fullheight ${styles['intro__background-image']}`}
+      className={`hero ${styles.heroWhite} is-fullheight ${styles['intro__background-image']}`}
       style={
         {
           backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.3), 25%, rgba(10, 10, 10, 0.9)), url(${props.backgroundImageUrl})`,
@@ -12,10 +12,10 @@ const Intro = (props) => {
     >
       <div className="hero-body">
         <div className="">
-          <p className="title">
+          <p className="title has-text-white">
             { props.name }
           </p>
-          <p className="subtitle">
+          <p className="subtitle has-text-white">
             { props.copy }
           </p>
           <div className="block">

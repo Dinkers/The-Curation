@@ -54,3 +54,15 @@ export const getPlacesData = createSelector(
 // Derived Place Type data
 export const getPlaceTypeImages = (state) => state.home.placeTypeImageMap
 export const getSelectedPlaceType = (state) => state.home.selectedPlaceType
+
+export const getPlacesImagesRequest = (state) => state.home.placesImagesRequest
+export const getPlacesImages = (state) => state.home.placesImages
+
+export const getPlacesImagesData = createSelector(
+  getPlacesImagesRequest,
+  getPlacesImages,
+  (placesImagesRequest, placesImages) => ({
+    placesImagesRequest,
+    placesImages
+  })
+)
