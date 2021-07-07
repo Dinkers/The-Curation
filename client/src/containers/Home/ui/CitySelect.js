@@ -37,6 +37,7 @@ function CitySelect () {
   }, [dispatch, citiesData])
   
   const handleCitySelection = (id) =>{
+    // TODO: create an action to reset to initial rather than all of these
     dispatch(resetRequestStatus('filtersRequest'))
     dispatch(resetFilters())
     dispatch(setSelectedPlaceType('Any'))
