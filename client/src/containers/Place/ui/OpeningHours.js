@@ -23,11 +23,11 @@ const OpeningHours = () => {
         {
           openingHoursData.openingHoursRequest === 'completed'
           ? (
-            openingHoursData.sortedOpeningHours.map((openingHour) => {
+            openingHoursData.sortedOpeningHours.map((openingHour, index) => {
               return (
                 openingHour['closed'] 
-                ? <p>{ openingHour.weekday }: Closed</p>
-                : <p>{ openingHour.weekday } : { openingHour['from_hour'] } - { openingHour['to_hour'] }</p>
+                ? <p key={`opening-hour-${index}`}>{ openingHour.weekday }: Closed</p>
+                : <p key={`opening-hour-${index}`}>{ openingHour.weekday } : { openingHour['from_hour'] } - { openingHour['to_hour'] }</p>
               )
             })
           )

@@ -24,7 +24,7 @@ const USPs = () => {
           uspsData.uspsRequest === 'completed'
             ? (
               <ul>
-                { uspsData.usps.map((usp) => <li>{usp.usp}</li>) }
+                { uspsData.usps.map((usp) => <li key={`usp-${usp.id}`}>{usp.usp}</li>) }
               </ul>
             ) 
             : ( <p>Loading</p> )

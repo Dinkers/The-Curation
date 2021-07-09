@@ -9,15 +9,15 @@ const ContactInfo = () => {
   <div className="block">
     <div className="content">
       <p>
-        <span class="subtitle is-6">Find: </span>
+        <span className="subtitle is-6">Find: </span>
         { placeData.place.address }
       </p>
       <p>
-        <span class="subtitle is-6">Write: </span>
+        <span className="subtitle is-6">Write: </span>
         { placeData.place.email_address }
       </p>
       <p>
-        <span class="subtitle is-6">Website: </span>
+        <span className="subtitle is-6">Website: </span>
         { placeData.place.website }
       </p>
     </div>

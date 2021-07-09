@@ -25,7 +25,7 @@ const VitalInfo = () => {
           vitalInfoData.vitalInfoRequest === 'completed'
             ? (
               <ul>
-                { vitalInfoData.vitalInfos.map((vitalInfo) => <li>{ vitalInfo['vital_info'] }</li>) }
+                { vitalInfoData.vitalInfos.map((vitalInfo) => <li key={`vital-info-${vitalInfo.id}`}>{ vitalInfo['vital_info'] }</li>) }
               </ul>
             )
             : ( <p>Loading</p> )
