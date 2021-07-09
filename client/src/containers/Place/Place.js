@@ -54,10 +54,16 @@ const Place = () => {
           <div>
             <section className="section" ref={ contentStartRef }>
               <div className="container">
-
-                <button className="button" onClick={ () => handleHomeClick() }>
-                  Home
-                </button> 
+                <button 
+                  aria-label="close"
+                  className={`modal-close is-large`}
+                  onClick={ () => handleHomeClick() }
+                  style={{
+                    zIndex: 1000,
+                    background: '#808080a3'}}
+                >
+                  Close
+                </button>
 
                 <Header />
                 <ImageSlider />
