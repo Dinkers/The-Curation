@@ -18,8 +18,6 @@ function PlaceSelect () {
 
   const [placesToShow, setPlacesToShow] = useState(placesData.places)
 
-  const testImage = 'https://source.unsplash.com/GXXYkSwndP4/1600x900'
-
   useEffect(() => {
     if (placesImagesData.placesImagesRequest === 'initial' && placesData.placesRequest === 'completed') {
       dispatch(requestPlacesImages(placesData.places))

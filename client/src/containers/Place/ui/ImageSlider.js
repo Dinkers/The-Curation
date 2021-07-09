@@ -9,9 +9,9 @@ const ImageSlider = () => {
   
   return (
     <div className="block">
-    <Slider
-      images={ placeImageUris }
-    />
+      <Slider
+        images={ placeImageUris }
+      />
   </div>
   )
 }

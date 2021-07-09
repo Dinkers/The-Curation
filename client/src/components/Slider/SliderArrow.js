@@ -14,8 +14,8 @@ const SliderArrow = (props) => {
     >
       { 
         props.direction === 'left'
-          ? <i class="fa fa-arrow-left"></i>
-          : <i class="fa fa-arrow-right"></i>
+          ? <i className="fa fa-arrow-left"></i>
+          : <i className="fa fa-arrow-right"></i>
       }
     </span>
   )

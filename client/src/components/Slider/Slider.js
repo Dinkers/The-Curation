@@ -15,9 +15,9 @@ const ImageSlider = (props) => {
 
   return (
     <Slider { ...settings }>
-      { props.images.map((image) => {
+      { props.images.map((image, index) => {
         return (
-          <figure class="image is-16by9">
+          <figure className="image is-16by9" key={`image-slide-${index}`}>
             <img src={image} />
           </figure>
         )
