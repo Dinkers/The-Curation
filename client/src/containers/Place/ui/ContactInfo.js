@@ -10,15 +10,27 @@ const ContactInfo = () => {
     <div className="content">
       <p>
         <span className="subtitle is-6">Find: </span>
-        { placeData.place.address }
+        <a 
+          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeData.place.address)}`} 
+          target="_blank" 
+          rel="noreferrer"
+        >
+          { placeData.place.address }
+        </a>
       </p>
       <p>
         <span className="subtitle is-6">Write: </span>
-        { placeData.place.email_address }
+        <a href={`mailto:${placeData.place.email_address}`}>{ placeData.place.email_address }</a>
       </p>
       <p>
         <span className="subtitle is-6">Website: </span>
-        { placeData.place.website }
+        <a 
+          href={`//${ placeData.place.website }`} 
+          target="_blank" 
+          rel="noreferrer"
+        >
+          { placeData.place.website }
+        </a>
       </p>
     </div>
   </div>
