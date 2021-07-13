@@ -21,7 +21,7 @@ function CitySelect () {
   const citiesData = useSelector(getCitiesData)
 
   const [isSelecting, setIsSelecting] = useState(initialState.isSelecting)
-  const [selectedCityImage, setSelectedCityImage] = useState(initialState.selectedCityImage)
+  // const [selectedCityImage, setSelectedCityImage] = useState(initialState.selectedCityImage)
 
   useEffect(() => {
     if (citiesData.citiesRequest === 'initial') {
@@ -32,7 +32,7 @@ function CitySelect () {
   useEffect(() => {
     if (citiesData.selectedCity) {
       dispatch(requestGetPlaces(citiesData.selectedCity.id))
-      setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
+      // setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
     }
   }, [dispatch, citiesData])
   
