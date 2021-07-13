@@ -72,7 +72,11 @@ export const placeSlice = createSlice({
       state.placeRequest = 'failed'
     },
 
-    //Vital Info requests
+    //Vital Info 
+    [requestAllVitalInfos.pending]: (state) => {
+      state.vitalInfoRequest = 'pending'
+    },
+
     [requestAllVitalInfos.fulfilled]: (state, action) => {
       state.vitalInfoRequest = 'completed'
       state.vitalInfos = action.payload
@@ -82,7 +86,11 @@ export const placeSlice = createSlice({
       state.vitalInfoRequest = 'failed'
     },
 
-    // USPs requests
+    // USPs 
+    [requestAllUsps.fulfilled]: (state) => {
+      state.uspsRequest = 'pending'
+    },
+
     [requestAllUsps.fulfilled]: (state, action) => {
       state.uspsRequest = 'completed'
       state.usps = action.payload
@@ -93,15 +101,31 @@ export const placeSlice = createSlice({
     },
 
     // Opening hours requests
+    [requestAllOpeningHours.pending]: (state) => {
+      state.openingHoursRequest = 'pending'
+    },
+
     [requestAllOpeningHours.fulfilled]: (state, action) => {
       state.openingHoursRequest = 'completed'
       state.openingHours = action.payload
     },
 
+    [requestAllOpeningHours.rejected]: (state) => {
+      state.openingHoursRequest = 'failed'
+    },
+
     // Place images requests
+    [requestAllPlaceImages.pending]: (state) => {
+      state.placeImagesRequest = 'pending'
+    },
+
     [requestAllPlaceImages.fulfilled]: (state, action) => {
       state.placeImagesRequest = 'completed'
       state.placeImages = action.payload
+    },
+
+    [requestAllPlaceImages.rejected]: (state) => {
+      state.placeImagesRequest = 'failed'
     }
   }
 })
