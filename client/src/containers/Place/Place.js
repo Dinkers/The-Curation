@@ -6,6 +6,7 @@ import { getAppData } from 'containers/App/data/appSelectors'
 import { requestGetPlace, resetPlaceData } from 'containers/Place/data/placeSlice'
 import { getPlaceData } from 'containers/Place/data/placeSelectors'
 
+import Button from 'components/Button/Button'
 import Notification from 'components/Notification/Notification'
 
 import ContactInfo from 'containers/Place/ui/ContactInfo'
@@ -54,17 +55,7 @@ const Place = () => {
           <div>
             <section className="section" ref={ contentStartRef }>
               <div className="container">
-                <button 
-                  aria-label="close"
-                  className={`modal-close is-large`}
-                  onClick={ () => handleHomeClick() }
-                  style={{
-                    zIndex: 1000,
-                    background: '#808080a3'}}
-                >
-                  Close
-                </button>
-
+                <Button type='close' clickHandler={ handleHomeClick } />
                 <Header />
                 <ImageSlider />
                 <VitalInfo />
