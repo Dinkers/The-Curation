@@ -31,9 +31,13 @@ dotenv:
     > .env
 
 
-servershell:
+server-shell:
 	@docker exec -it curation.server bash
 
 
-psqlshell:
+client-shell:
+	@docker exec -it curation.client ash
+
+
+psql-shell:
 	@docker exec -it curation.postgres psql the_curation_db the_curation_user
