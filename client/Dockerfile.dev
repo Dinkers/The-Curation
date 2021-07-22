@@ -1,4 +1,4 @@
-FROM node:12.2.0-alpine
+FROM node:16-alpine
 
 RUN apk update
 RUN apk upgrade --available
@@ -6,12 +6,17 @@ RUN apk upgrade --available
 RUN mkdir /client
 COPY . /client
 
-WORKDIR /client
-ENV PATH /client/node_modules/.bin:$PATH
-COPY package.json /client/package.json
-RUN npm install
+ENV PATH=/node_modules/.bin:$PATH
+COPY package*.json ./
 
+RUN apk add --no-cache make gcc g++ python3 && \
+  npm install && npm cache clean --force && \
+  apk del make gcc g++ python3
+
+RUN npm rebuild node-sass && npm update
+
+WORKDIR /client
 ENV NODE_ENV DEV
-EXPOSE 80
+EXPOSE 3000
 
 ENTRYPOINT ["npm", "run", "start"]
