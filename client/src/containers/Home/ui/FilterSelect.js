@@ -43,7 +43,7 @@ function FilterSelect () {
 
           return (
             <div className="column" key={`filter-select-block-${filter.id}`}>
-              <div class="tags">
+              <div className="tags">
                 <Tag
                   clickHandler={ () => handleFilterSelection(filter.id) }
                   isSelected={ isSelected }
