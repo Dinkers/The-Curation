@@ -1,3 +1,5 @@
+import Button from 'components/Button/Button'
+
 import styles from './Modal.module.scss'
 
 const Modal = (props) => {
@@ -14,11 +16,10 @@ const Modal = (props) => {
         </section>
       </div>
 
-      <button 
-        aria-label="close"
-        className={`modal-close is-large ${styles.modalClose} ${styles.isOverride}`} 
-        onClick={ () => props.closeHandler() }
-      ></button>
+      <Button
+        type='close'
+        clickHandler={ props.closeHandler }
+      />
     </div>
   )
 }

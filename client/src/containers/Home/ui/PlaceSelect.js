@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { setCurrentScreen, setSelectedPlaceId } from 'containers/App/data/appSlice'
-import { getPlacesData, getSelectedFilters, getSelectedPlaceType } from 'containers/Home/data/homeSelectors'
+import { requestPlacesImages } from 'containers/Home/data/homeSlice'
+import { getPlacesData, getSelectedFilters, getSelectedPlaceType, getPlacesImagesData } from 'containers/Home/data/homeSelectors'
 
 import Notification from 'components/Notification/Notification'
 import Card from 'components/Card/Card'
@@ -13,10 +14,15 @@ function PlaceSelect () {
   const placesData = useSelector(getPlacesData)
   const selectedFilters = useSelector(getSelectedFilters)
   const selectedPlaceType = useSelector(getSelectedPlaceType)
+  const placesImagesData = useSelector(getPlacesImagesData)
 
   const [placesToShow, setPlacesToShow] = useState(placesData.places)
 
-  const testImage = 'https://source.unsplash.com/GXXYkSwndP4/1600x900'
+  useEffect(() => {
+    if (placesImagesData.placesImagesRequest === 'initial' && placesData.placesRequest === 'completed') {
+      dispatch(requestPlacesImages(placesData.places))
+    }
+  }, [placesData.placesRequest, placesImagesData.placesImagesRequest, dispatch, placesData.places])
 
   useEffect(() => {
     setPlacesToShow(placesData.places)
@@ -57,7 +63,7 @@ function PlaceSelect () {
         key={`place-select-card-${ place.name }`}
         cardType="image"
         clickHandler={ () => { handlePlaceSelect(place.id) } }
-        image={ testImage }
+        image={ placesImagesData.placesImages.find((image) => image.place === place.id).uri }
         imageRatio="is-2by1"
         title={ place.name }
       />
@@ -67,7 +73,7 @@ function PlaceSelect () {
   return (
     <div className="block">
       <h3 className="title is-4">Places</h3>
-      { placesData.placesRequest === 'completed'
+      { placesData.placesRequest === 'completed' && placesImagesData.placesImagesRequest === 'complete'
         ? (
             generatePlacesChoiceContent(placesToShow) 
         )

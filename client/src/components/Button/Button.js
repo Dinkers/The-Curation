@@ -4,7 +4,20 @@ const Button = (props) => {
     if (props.clickHandler) props.clickHandler()
   }
 
-  return (
+  const renderCloseButton = () => (
+    <button 
+      aria-label="close"
+      className={`modal-close is-large`}
+      onClick={ () => handleClick() }
+      style={{
+        zIndex: 1000,
+        background: '#808080a3'}}
+      >
+      Close
+    </button>
+  )
+
+  const renderDefaultButton = () => (
     <button 
       className="button is-inverted"
       onClick={ () => handleClick() }
@@ -22,6 +35,19 @@ const Button = (props) => {
         : ''
       }
     </button>
+  )
+
+  const renderButton = () => {
+    switch (props.type) {
+      case 'close':
+        return renderCloseButton()
+      default:
+        return renderDefaultButton()
+    }
+  }
+
+  return (
+    renderButton()
   )
 }
 

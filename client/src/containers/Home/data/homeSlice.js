@@ -16,7 +16,14 @@ export const requestGetPlaces = createAsyncThunk(
 
 export const requestGetFilters = createAsyncThunk(
   'home/reqGetFilters',
-  async(cityId) => await http.get('filters', `${cityId}`)
+  async (cityId) => await http.get('filters', `${cityId}`)
+)
+
+export const requestPlacesImages = createAsyncThunk(
+  'home/reqPlacesImages',
+  async (places) => await Promise.all(
+    places.map((place) => http.get('place-images', place.images[0], true))
+  )
 )
 
 export const homeSlice = createSlice({
@@ -36,13 +43,25 @@ export const homeSlice = createSlice({
     places: [],
     placesRequest: 'initial',
 
+    placesImages: [],
+    placesImagesRequest: 'initial',
+
     placeTypeImageMap: placeTypeImageMap,
     selectedPlaceType: 'Any'
   },
 
   reducers: {
+    resetPlacesRequest: (state) => {
+      state.placesRequest = 'initial'
+    },
+
     resetFilters: (state) => {
       state.selectedFilters = []
+    },
+
+    resetPlacesImages: (state) => {
+      state.placesImages = []
+      state.placesImagesRequest = 'initial'
     },
 
     resetRequestStatus: (state, action) => {
@@ -110,6 +129,11 @@ export const homeSlice = createSlice({
 
     [requestGetFilters.rejected]: (state) => {
       state.filtersRequest = 'failed'
+    },
+
+    [requestPlacesImages.fulfilled]: (state, action) => {
+      state.placesImagesRequest = 'complete'
+      state.placesImages = action.payload
     }
   }
 })
@@ -119,7 +143,9 @@ export const {
   resetRequestStatus,
   setSelectedCity,
   setSelectedFilter,
-  setSelectedPlaceType
+  setSelectedPlaceType,
+  resetPlacesImages,
+  resetPlacesRequest
 } = homeSlice.actions
 
 export default homeSlice.reducer

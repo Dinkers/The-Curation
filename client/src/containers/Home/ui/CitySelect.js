@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus, resetFilters, setSelectedPlaceType } 
+import { setSelectedCity, requestGetPlaces, requestGetCities, resetRequestStatus, resetFilters, setSelectedPlaceType, resetPlacesImages, resetPlacesRequest } 
   from 'containers/Home/data/homeSlice'
 import { getCitiesData } from 'containers/Home/data/homeSelectors'
 
@@ -21,7 +21,7 @@ function CitySelect () {
   const citiesData = useSelector(getCitiesData)
 
   const [isSelecting, setIsSelecting] = useState(initialState.isSelecting)
-  const [selectedCityImage, setSelectedCityImage] = useState(initialState.selectedCityImage)
+  // const [selectedCityImage, setSelectedCityImage] = useState(initialState.selectedCityImage)
 
   useEffect(() => {
     if (citiesData.citiesRequest === 'initial') {
@@ -32,15 +32,18 @@ function CitySelect () {
   useEffect(() => {
     if (citiesData.selectedCity) {
       dispatch(requestGetPlaces(citiesData.selectedCity.id))
-      setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
+      // setSelectedCityImage(citiesData.citiesImages[citiesData.selectedCity.name])
     }
   }, [dispatch, citiesData])
   
   const handleCitySelection = (id) =>{
+    // TODO: create an action to reset to initial rather than all of these
     dispatch(resetRequestStatus('filtersRequest'))
     dispatch(resetFilters())
     dispatch(setSelectedPlaceType('Any'))
     dispatch(setSelectedCity(id))
+    dispatch(resetPlacesImages())
+    dispatch(resetPlacesRequest())
     setIsSelecting(false)
   }
 
